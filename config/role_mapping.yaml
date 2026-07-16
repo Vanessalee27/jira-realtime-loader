@@ -1,0 +1,23 @@
+# ============================================================
+# loader.txt 欄位 <-> PDM 角色代碼 對應規則
+# 資料來源：產品生命週期文件流簽表 > PDP文件流簽 分頁
+#           表單編號 HQ-PD.156「程式類承認書」
+# 此規則須 real-time 從 SharePoint 讀取驗證，本檔案為 fallback 快取，
+# 若 real-time 讀取失敗才使用本檔案內容（並於執行 log 中標註）。
+# ============================================================
+
+form_name: "程式類承認書"
+form_id: "HQ-PD.156"
+
+role_mapping:
+  REVIEWER: "SW RQM"
+  REVIEWER2: "PE NP"
+  REVIEWER3: "SW STM"
+  APPROVER: "SW PJM UM"
+  Mail_Reveiver: "PE NP UM"
+
+# Creator 欄位保留但不輸出於 loader.txt（依需求確認）
+creator_role: "SW PJM"
+
+# 已依需求確認忽略此例外規則，不做 SW STM -> SW RQM 的替代邏輯
+# note_exception_ignored: true
