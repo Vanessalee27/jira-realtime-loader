@@ -1,0 +1,30 @@
+# ============================================================
+# 系統核心設定
+# 修改此檔案（尤其是 token_budget）需經管理者確認，
+# 並記錄於 docs/CHANGELOG.md，Agent 不得自行調整。
+# ============================================================
+
+token_budget:
+  max_tokens_per_run: 8000        # 單次執行 hard limit
+  max_tokens_per_day: 50000       # 每日累計 hard limit
+  warning_threshold_pct: 80       # 達 80% 開始跳警告
+  hard_stop: true                 # 超過上限強制中斷，不得例外
+
+sources:
+  sharepoint_doc_url: "https://moxa.sharepoint.com/:x:/s/PRODOFC/IQAU1KgboevDS6NEltzRDsyvAVl9QXXIPgg3MaHV8285R2o"
+  sharepoint_target_sheet: "PDP文件流簽"
+  sharepoint_form_name: "程式類承認書"
+  jira_base_url: "https://jira-dc.moxa.com"
+  pdm_base_url: "https://pap.moxa.com/Windchill"
+
+fallback:
+  # 邏輯順序：邏輯1(PDM即時) -> 邏輯2(JIRA內建簽核表，過渡期) -> 人工確認
+  # 邏輯3(產品樹維護代表)已於需求確認後取消
+  field_level_fallback: true   # 欄位級別各自 fallback，非整組失敗
+
+notification:
+  post_new_comment_every_run: true   # 每次都發新留言，不做編輯/去重
+  notify_on_success: true            # 全部成功也要留言
+  mention_targets:
+    - assignee
+    - reporter
