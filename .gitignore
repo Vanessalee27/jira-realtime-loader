@@ -1,0 +1,19 @@
+# 機敏資料，絕不進版控
+.env
+*.key
+config/.admin_password_hash
+/secrets/
+
+# Log / 執行期產出
+/logs/
+*.log
+loader.txt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
