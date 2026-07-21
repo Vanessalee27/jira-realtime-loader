@@ -1,0 +1,1782 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html class=" ext-strict x-viewport"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="author" content="PTC">
+<meta name="description" content="Windchill">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>專案</title><script type="text/javascript">var ie8_404_fix=1;</script>
+<base id="basehref" href="https://pap.moxa.com/Windchill/"><link rel="stylesheet" href="netmarkets/css/windchill-base.css" type="text/css">
+<link rel="stylesheet" href="netmarkets/javascript/ext/resources/css/ext-sandbox.css" type="text/css">
+<link rel="stylesheet" id="theme0" href="netmarkets/themes/windchill/xtheme-windchill.css" type="text/css">
+<script type="text/javascript" src="netmarkets/javascript/util/windchill-libs.js"></script>
+<script type="text/javascript" src="netmarkets/javascript/ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="netmarkets/javascript/util/ext-and-extensions.js"></script>
+<script type="text/javascript" src="netmarkets/javascript/util/jstable-all.js"></script>
+<script type="text/javascript" src="netmarkets/javascript/util/windchill-all.js"></script>
+<script type="text/javascript" src="netmarkets/javascript/navigation/navigationToExternal.js"></script>
+<script type="text/javascript" src="core-ui/2.2/lib/jquery.min.js"></script>
+<script type="text/javascript" src="core-ui/2.2/lib/jquery-ui/jquery-ui-custom.min.js"></script>
+<script type="text/javascript" src="core-ui/2.2/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="apps/Windchill/jquery_noconflict.js"></script>
+
+
+<script type="text/javascript">  
+    PTC.nonce = 'fhYCD0MQYepaQjK1OltpZwJSE4hjclzyPyJ4VzlmFIIdJnmCMSdlOgp7AKkpEnv0OU9vei9EUddgcwWNSiMxNnUpV9hiegjsJCdoPClbC6AQLB3bKkJNWg8pDoAtD3zHEkBkbQh1NK8DdHr5E3MxOQ9BXA\x3D\x3D';
+</script>
+
+
+<meta name="gwt:property" content="locale=zh_TW">
+
+<script type="text/javascript">
+    isWizardWindow = FALSE_FUNC; 
+    PTC.navigation.LICENSE_ALERT = '您有授權通知。';
+    PTC.navigation.LICENSE_NOTIFICATION_NUMBER = '0';
+    PTC.navigation.LICENSE_ALERT_TITLE = '授權警示';
+    PTC.navigation.LICENSE_NOTIFICATION_TOOLTIP = '檢視授權通知。';
+    PTC.navigation.HEADER_CLASS = 'wncApplLogo windchillLogo';
+    PTC.navigation.NAVIGATION_TITLE = '導覽';
+    PTC.navigation.GLOBAL_USER = 'Minna_Lee';
+    PTC.navigation.GLOBAL_USER_ID = 'Minna_Lee';
+    var navigatorMainTabs = [
+   {"accesskey":"S","tooltip":"搜尋","id":"object_search_navigation","title":"搜尋(<u class='mnemonic'>S<\/u>)","subTabs":[{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/default_leaf.png","id":"historySaved","text":"搜尋記錄和已存搜尋","href":"ptc1/historySaved/list"},"id":"historySavedNavigation","title":"搜尋記錄和已存搜尋","url":"ptc1/search/historySavedSearchDisplay"},{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/default_leaf.png","id":"advanced","text":"進階搜尋","href":"ptc1/advanced/list"},"id":"advancedNavigation","title":"進階搜尋","url":"wtcore/jsp/com/ptc/windchill/search/Search.jsp"},{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/default_leaf.png","id":"classificationExplorer","text":"分類總管","href":"ptc1/classificationExplorer/list"},"id":"classificationExplorerNavigation","title":"分類總管","url":"ptc1/search/classificationExplorer"}]},
+   {"accesskey":"W","isAccordion":true,"tooltip":"瀏覽","id":"object_main_navigation","title":"瀏覽(<u class='mnemonic'>w<\/u>)","subTabs":[{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/navigator_recentContexts.png","id":"recentContexts","text":"最近瀏覽過","href":"ptc1/recentContexts/list"},"icon":"netmarkets/images/navigator_recentContexts.png","id":"recentContextsNavigation","title":"最近瀏覽過"},{"listActionUrl":"app/#ptc1/comp/netmarkets.product.list","treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/navigator_product.png","id":"product","text":"最近存取的產品","href":"ptc1/product/list"},"listActionTitle":"檢視全部","icon":"netmarkets/images/navigator_product.png","id":"productNavigation","title":"最近存取的產品","listActionTip":"檢視所有產品"},{"listActionUrl":"app/#ptc1/comp/netmarkets.library.list","treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/navigator_library.png","id":"library","text":"最近存取的物件庫","href":"ptc1/library/list"},"listActionTitle":"檢視全部","icon":"netmarkets/images/navigator_library.png","id":"libraryNavigation","title":"最近存取的物件庫","listActionTip":"檢視所有物件庫"},{"listActionUrl":"app/#ptc1/comp/netmarkets.project.list.table","treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/navigator_project.png","id":"project","text":"最近存取的專案","href":"ptc1/comp/netmarkets.project.list.table"},"listActionTitle":"檢視全部","icon":"netmarkets/images/navigator_project.png","id":"projectNavigation","title":"最近存取的專案","listActionTip":"檢視所有專案"},{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/navigator_change.png","id":"change","text":"變更","href":"ptc1/change/list"},"icon":"netmarkets/images/navigator_change.png","id":"changeNavigation","title":"變更"},{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/navigator_supplier.png","id":"supplier","text":"最近的供應商","href":"ptc1/supplier/list"},"icon":"netmarkets/images/navigator_supplier.png","id":"supplierNavigation","title":"最近的供應商"},{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/navigator_customization.png","id":"customization","text":"自訂","href":"ptc1/carambola/customization/examples/picker/picker?tab=customization"},"icon":"netmarkets/images/navigator_customization.png","id":"customizationNavigation","title":"自訂"},{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/reports_24.png","id":"pcmsreport","text":"報表 tab","href":"ptc1/pcmsreport/list"},"icon":"netmarkets/images/reports_24.png","id":"pcmsreportNavigation","title":"報表 tab"},{"treeLoader":{"dataUrl":"servlet/navigation_list"},"root":{"icon":"netmarkets/images/producttree24.png","id":"productTree","text":"Product Tree","href":"ptc1/productTree/list"},"icon":"netmarkets/images/producttree24.png","id":"productTreeNavigation","title":"Product Tree"}]}
+];
+    
+    
+</script>
+
+
+
+<style type="text/css">.recentContextsNavigation-icon { background: url(netmarkets/images/navigator_recentContexts.png) no-repeat !important; } 
+.productNavigation-icon { background: url(netmarkets/images/navigator_product.png) no-repeat !important; } 
+.libraryNavigation-icon { background: url(netmarkets/images/navigator_library.png) no-repeat !important; } 
+.projectNavigation-icon { background: url(netmarkets/images/navigator_project.png) no-repeat !important; } 
+.changeNavigation-icon { background: url(netmarkets/images/navigator_change.png) no-repeat !important; } 
+.supplierNavigation-icon { background: url(netmarkets/images/navigator_supplier.png) no-repeat !important; } 
+.customizationNavigation-icon { background: url(netmarkets/images/navigator_customization.png) no-repeat !important; } 
+.pcmsreportNavigation-icon { background: url(netmarkets/images/reports_24.png) no-repeat !important; } 
+.productTreeNavigation-icon { background: url(netmarkets/images/producttree24.png) no-repeat !important; } 
+</style></head>
+<body class="wcshell  ext-webkit ext-chrome x-border-layout-ct" onload="initwcshell();" id="ext-gen3"><div id="ygddfdiv" style="position: absolute; visibility: hidden; cursor: move; border: 2px solid rgb(170, 170, 170); z-index: 999;"></div><div id="contentPanel_contentArea" class=" x-panel x-panel-noborder x-border-panel" style="left: 30px; top: 41px; width: 1250px;"><div class="x-panel-bwrap" id="ext-gen20"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder x-box-layout-ct" id="ext-gen21" style="width: 1250px; height: 679px;"><div class="x-box-inner" id="ext-gen69" style="width: 1250px; height: 679px;"><div id="contentPanel_breadcrumb" class=" x-panel x-panel-noborder x-box-item" style="width: 1226px; left: 6px; top: 8px;"><div class="x-panel-bwrap" id="ext-gen70"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder x-box-layout-ct" id="ext-gen71" style="width: 1226px; height: 20px;"><div class="x-box-inner" id="ext-gen87" style="height: 25px; width: 1226px;"><div id="homePageIconID" class=" home_icon_header home_icon x-box-item" style="left: 0px; top: 0px;"></div><div id="contentPanel_crumbs" class=" x-panel x-panel-noborder x-box-item" style="width: 962px; left: 20px; top: 0px;"><div class="x-panel-bwrap" id="ext-gen88"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder x-box-layout-ct" id="ext-gen89" style="height: 18px; width: 962px;"><div class="x-box-inner" id="ext-gen95" style="width: 962px;"><div id="ext-comp-1090" class=" x-panel x-box-item" style="left: 0px; top: 0px;"><div class="x-panel-bwrap" id="ext-gen452"><div class="x-panel-body x-panel-body-noheader" id="ext-gen453" style="height: 0px;"></div></div></div></div></div></div></div><div id="ProjectStatusPanelId" class=" x-panel x-panel-noborder x-box-item" style="width: 175px; left: 982px; top: 0px;"><div class="x-panel-bwrap" id="ext-gen91"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder x-box-layout-ct" id="ext-gen92" style="width: 175px; height: 25px;"><div class="x-box-inner" id="ext-gen96" style="width: 175px;"></div></div></div></div><table id="contentPanel_recentlyAccessed" cellspacing="0" class="x-btn  x-btn-noicon x-box-item" style="width: auto; left: 1157px; top: 0.5px;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="x-btn-arrow" unselectable="on"><button type="button" id="ext-gen94" class=" x-btn-text">最近存取</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></div></div></div></div><div id="contentPanel_parent" class=" x-box contentTab x-box-noborder x-box-item" style="width: 1238px; left: 6px; top: 34px;"><div class="x-box-tl"><div class="x-box-tr"><div class="x-box-tc"></div></div></div><div class="x-box-bwrap" id="ext-gen73"><div class="x-box-ml"><div class="x-box-mr"><div class="x-box-mc" id="ext-gen76"><div class="x-box-body x-box-body-noborder" id="ext-gen74" style="width: 1228px; height: 633px;"><div id="contentPanel" class="x-panel" style="width: auto;"><div class="x-panel-bwrap" id="ext-gen78"><div class="x-panel-body contentBody x-panel-body-noheader" id="ext-gen79" style="overflow: auto; width: auto; height: 633px;"><div id="contentDiv"><form name="mainform" id="mainform" method="POST" action="https://pap.moxa.com/Windchill/ptc1/comp/netmarkets.project.list.table?portlet=component&amp;wt.reqGrp=4eijh0dv%3Bmrkw0m6s%3B2837782%3Bmomoeg%3B755903&amp;u8=1"><input type="hidden" class="jca" name="openerCompContext" value="none"><input type="hidden" class="jca" name="openerElemAddress" value="none"><input type="hidden" class="jca" name="openerActionClass" value="none"><input type="hidden" class="jca" name="openerActionMethod" value="none"><input type="hidden" class="jca" name="openerExecuteLocation" value="none"><input type="hidden" class="jca" name="current" value="none"><input type="hidden" class="jca" name="selectedInOpener" value="none"><input type="hidden" class="jca" name="nmwindowname" value="none"><input type="hidden" class="jca" name="compContext" value="none"><input type="hidden" class="jca" name="elemAddress" value="none"><input type="hidden" class="jca" name="actionClass" value="none"><input type="hidden" class="jca" name="actionMethod" value="none"><input type="hidden" class="jca" name="popupCompContext" value="none"><input type="hidden" class="jca" name="popupElemAddress" value="none"><input type="hidden" class="jca" name="popupActionClass" value="none"><input type="hidden" class="jca" name="popupActionMethod" value="none"><input type="hidden" class="jca" name="nmwidth" value="none"><input type="hidden" class="jca" name="nmheight" value="none"><input type="hidden" class="jca" name="xposition" value="none"><input type="hidden" class="jca" name="yposition" value="none"><input type="hidden" class="jca" name="refreshedFromPopup" value="none"><input type="hidden" class="jca" name="onPageAction" value="none"><input type="hidden" class="jca" name="executeLocation" value="inbegin"><input type="hidden" class="jca" name="popupExecuteLocation" value="inbegin"><input type="hidden" class="jca" id="ProECommandInput"><input type="hidden" class="jca" id="ProECommandOutput"><input type="hidden" class="jca" name="CSRF_NONCE" value="BjzaBGJj1jHuh1W0QnGxbCMhpFPXtzvzRwigXBgVo1mp4x6DSQ29MSsIt3Kd1xz1QWW3cQ435gzUtmKMMgnpPVRa4APWv2/tXA2wNwgovHuk6XraUmiVUS5auVuZyhvGamq8ZikGg3S3sR34a1npMi4y6w==">
+
+
+
+
+        
+        
+
+
+ 
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="javascript">PTC.jca.setPageTitle=null;</script>
+
+
+        <div id="table__netmarkets.project.list.table_TABLE" class="frame_outer"><script type="text/javascript">PTC.ExtJSONTableConfig ={"hidden":false,"extraData":{},"selectable":true,"pickView":{"defaultActionName":"使用中專案","activeViewUpdateCount":"3","tooltip":"- 擇取一個檢視 -","actionID":"object_null","activeViewOid":"OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:236919311","text":" 檢視:","items":[{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:631254935');},"hidden":false,"tooltip":"CEOL 專案進度查詢","disabled":false,"text":"CEOL 專案進度查詢"},{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:1364822471');},"hidden":false,"tooltip":"with NO.","disabled":false,"text":"with NO."},{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:236919311');},"hidden":false,"tooltip":"使用中專案","disabled":false,"text":"使用中專案"},{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:236919312');},"hidden":false,"tooltip":"依狀態檢視所有專案","disabled":false,"text":"依狀態檢視所有專案"},{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:719849093');},"hidden":false,"tooltip":"傳統專案 ","disabled":false,"text":"傳統專案 "},{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:236919314');},"hidden":false,"tooltip":"已完成的專案","disabled":false,"text":"已完成的專案"},{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:236919315');},"hidden":false,"tooltip":"我擁有的專案","disabled":false,"text":"我擁有的專案"},{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:236919317');},"hidden":false,"tooltip":"我的最愛","disabled":false,"text":"我的最愛"},{"handler":function(target,event,table){PTC.jca.table.Utils.handleViewChange('netmarkets.project.list.table','OR:com.ptc.core.htmlcomp.tableview.TableViewDescriptor:236919316');},"hidden":false,"tooltip":"我的組織的專案","disabled":false,"text":"我的組織的專案"},{"hidden":false,"tooltip":"---------------------","actionID":"separator","disabled":false,"id":"separator","text":"---------------------"},{"actionType":"table","handler":function(target,event,table){PTC.jca.table.saveCurrentView('netmarkets.project.list.table');},"hidden":true,"tooltip":"儲存檢視","actionID":"P7591119424030158","disabled":false,"id":"P7591119424030158","text":"儲存檢視","actionName":"saveView"},{"actionType":"table","handler":function(target,event,table){PTC.jca.table.confirmAdhocView('netmarkets.project.list.table');},"hidden":false,"tooltip":"另存為檢視\u2026","actionID":"P7591119424030159","disabled":false,"id":"P7591119424030159","text":"另存為檢視\u2026","actionName":"saveAsView"},{"handler":function(target,event,table){javascript:if(PTC && PTC.learningConnector){PTC.learningConnector.sendCommand('TableViewManager','view',null);}  var left = parseInt((screen.availWidth)-800)/2;var top = parseInt((screen.availHeight)-500)/2; window.open('https://pap.moxa.com/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?TableId=netmarkets.project.list.table&Action=HtmlcompTableViewManager&u8=1','TableViewManager','resizable=yes,scrollbars=yes,menubar=no,toolbar=no,location=no,status=no,width=800,height=500,left='+ left +',top='+ top);},"hidden":false,"tooltip":"自訂...","actionID":"Customize","disabled":false,"id":"Customize","text":"自訂..."}]},"pageSize":600,"variableRowHeight":false,"singleSelect":false,"tableName":"專案","currentColumnModel":{"sortInfo":"","gridColumnModel":[{"displayHeaderLabel":true,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":true,"tooltip":"依據「名稱」排序","sortable":true,"jscaRenderer":"jsca.columns.nmActionRenderer","isWrapped":false,"dataIndex":"name","width":120,"header":"名稱","columnResizeProperty":["AUTO_SIZE"],"id":"name","origId":"name","displayMultiHeaderLabel":false},{"displayHeaderLabel":false,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":false,"tooltip":"檢視資訊","sortable":false,"jscaRenderer":"jsca.columns.nmActionRenderer","isWrapped":false,"dataIndex":"infoPageAction","width":20,"header":"檢視資訊","columnResizeProperty":["AUTO_SIZE"],"id":"infoPageAction","origId":"infoPageAction","displayMultiHeaderLabel":false},{"displayHeaderLabel":false,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":false,"tooltip":"依據「物件類型指示器」排序","sortable":true,"jscaRenderer":"jsca.columns.simpleRenderer","isWrapped":false,"dataIndex":"type_icon","width":20,"header":"物件類型指示器","columnResizeProperty":["AUTO_SIZE","DO_NOT_CALCULATE"],"id":"type_icon","origId":"type_icon","displayMultiHeaderLabel":false},{"displayHeaderLabel":true,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":true,"tooltip":"依據「物件類型」排序","sortable":true,"jscaRenderer":"jsca.columns.simpleRenderer","isWrapped":false,"dataIndex":"SCA|displayType","width":120,"header":"物件類型","columnResizeProperty":["AUTO_SIZE","DO_NOT_CALCULATE"],"id":"SCA|displayType","origId":"SCA|displayType","displayMultiHeaderLabel":false},{"displayHeaderLabel":true,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":true,"tooltip":"依據「階段」排序","sortable":true,"jscaRenderer":"jsca.columns.simpleRenderer","isWrapped":false,"dataIndex":"projectPhase","width":120,"header":"階段","columnResizeProperty":["AUTO_SIZE"],"id":"projectPhase","origId":"projectPhase","displayMultiHeaderLabel":false},{"displayHeaderLabel":true,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":true,"tooltip":"依據「狀態」排序","sortable":true,"jscaRenderer":"jsca.columns.simpleRenderer","isWrapped":false,"dataIndex":"state","width":120,"header":"狀態","columnResizeProperty":["AUTO_SIZE","DO_NOT_CALCULATE"],"id":"state","filterType":"List","origId":"state","displayMultiHeaderLabel":false},{"displayHeaderLabel":true,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":true,"tooltip":"狀況","sortable":false,"jscaRenderer":"jsca.columns.simpleRenderer","isWrapped":false,"dataIndex":"healthStatus","width":120,"header":"狀況","columnResizeProperty":["AUTO_SIZE"],"id":"healthStatus","origId":"healthStatus","displayMultiHeaderLabel":false},{"displayHeaderLabel":true,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":true,"tooltip":"依據「完成狀況」排序","sortable":true,"jscaRenderer":"jsca.columns.simpleRenderer","isWrapped":false,"dataIndex":"completionStatus","width":120,"header":"完成狀況","columnResizeProperty":["AUTO_SIZE"],"id":"completionStatus","origId":"completionStatus","displayMultiHeaderLabel":false},{"displayHeaderLabel":true,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":true,"tooltip":"依據「上次修改」排序","sortable":true,"jscaRenderer":"jsca.columns.simpleRenderer","isWrapped":false,"dataIndex":"thePersistInfo_modifyStamp","width":120,"header":"上次修改","columnResizeProperty":["AUTO_SIZE","DO_NOT_CALCULATE"],"id":"thePersistInfo_modifyStamp","origId":"thePersistInfo.modifyStamp","displayMultiHeaderLabel":false},{"displayHeaderLabel":true,"renderer":"PTC.jca.jscaCellRenderer","hidden":false,"resizable":true,"tooltip":"依據「主持人」排序","sortable":true,"jscaRenderer":"jsca.columns.simpleRenderer","isWrapped":false,"dataIndex":"projectHost","width":120,"header":"主持人","columnResizeProperty":["AUTO_SIZE"],"id":"projectHost","origId":"projectHost","displayMultiHeaderLabel":false}],"storeFields":[{"name":"name"},{"name":"infoPageAction"},{"name":"nmActions"},{"name":"type_icon"},{"name":"SCA|displayType"},{"name":"projectPhase"},{"name":"state"},{"name":"healthStatus"},{"name":"completionStatus"},{"name":"thePersistInfo_modifyStamp"},{"name":"projectHost"},{"name":"oid"},{"name":"roid"},{"name":"jsca_context"},{"name":"selectableRow"},{"name":"rowHidden"},{"name":"dynamicLocation"}]},"selectedMessage":"已選取 #{selected} 個物件","activeViewEditable":false,"storeURL":{"method":"POST","params":{"tableID":["netmarkets.project.list.table"],"portlet":["component"]},"url":"ptc1/comp/netmarkets.project.list.table","pve":true},"pageOffset":0,"tableID":"netmarkets.project.list.table","rowHeight":22,"enableGroupingMenu":"true","showHeader":true,"showItemsCount":true,"actionsMenuColumnId":"nmActions","displayedMessage":"已顯示 #{displayed}  個物件，共 #{total} 個物件","toolbar":{"tooltip":"","actionID":"object_project list","text":"","items":[{"actionType":"project","handler":function(target,event,table){javascript:popupAction('createProplProject_\x24_project', 'ptc1/project/createProplProject', '','','','','','','','','','','','','portlet', 'poppedup', 'context', 'comp\x24netmarkets\x24\x24','', '', 'comp\x24netmarkets\x24\x24', 'none', 'com.ptc.netmarkets.project.processor.CreatePROPLProjectFormProcessor', 'execute', 'height=850,width=820', '','', false, 'P7591119424030160', 'row', '',false, 'table__netmarkets.project.list.table_TABLE'); PTC.learningConnector.sendCommand('createProplProject','project','null');},"shortCut":true,"hidden":false,"tooltip":"新建專案","icon":"netmarkets/images/newproject.gif","actionID":"P7591119424030160","disabled":false,"id":"P7591119424030160","text":"新建專案","actionName":"createProplProject"},{"handler":function(target,event,table){if(PTC.validate.navigateToViewSelectedObjectsIfSelectionsInSnapshot(event)) { javascript:submitIt('addToFavorites', 'null', 'width','700','height','600','','','','','','','','','portlet', 'poppedup', 'context', 'comp\x24netmarkets\x24\x24','', '', 'comp\x24netmarkets\x24\x24', 'none', 'com.ptc.netmarkets.favorites.commands.FavoritesCommands', 'addToFavorites', 'height=600,width=700', '','', false, 'P7591119424030161', 'component', '',true, 'table__netmarkets.project.list.table_TABLE')} ; PTC.learningConnector.sendCommand('addToFavorites','object','null');},"hidden":false,"tooltip":"新增至我的最愛","icon":"netmarkets/images/favorites_add.gif","selectRequired":true,"actionType":"object","shortCut":true,"actionID":"P7591119424030161","disabled":false,"id":"P7591119424030161","text":"新增至我的最愛","actionName":"addToFavorites","multiSelect":true},{"handler":function(target,event,table){if(PTC.validate.navigateToViewSelectedObjectsIfSelectionsInSnapshot(event) && postSelectValidation(event, 'multiProjectGanttNew')) { javascript:popupAction('multiProjectGanttNew_\x24_gantt', 'ptc1/bryntumGantt/explorer', '','','','','','','','','','','','','portlet', 'poppedup', 'context', 'comp\x24netmarkets\x24\x24','', '', 'comp\x24netmarkets\x24\x24', 'none', '', '', 'null', '','', false, 'P7591119424030162', 'component', '',true, 'table__netmarkets.project.list.table_TABLE')} ; PTC.learningConnector.sendCommand('multiProjectGanttNew','gantt','null');},"hidden":false,"tooltip":"在甘特總管內檢視","icon":"netmarkets/images/openin_gantt.gif","selectRequired":true,"actionType":"gantt","shortCut":true,"actionID":"P7591119424030162","disabled":false,"id":"P7591119424030162","text":"在甘特總管內檢視","actionName":"multiProjectGanttNew","multiSelect":true}]},"LockColIndex":-1,"findInTableMode":"CLIENT_AND_SERVER","displayedMoreMessage":"已顯示 #{displayed}  個物件，共超過 #{total} 個物件","help":{"tooltip":"說明","selector":"ProjMgmtProjectProgramTableRef","url":"https://support.ptc.com/help/windchill/r13.1.1.0/index.html?id=ProjMgmtProjectAbout&locale=zh-TW"},"pageLimit":600,"saveFormData":false,"serverSorted":true,"allMode":true,"displayedLoadCompleteMessage":"共 #{total} 個物件","singleSelectView":false,"collapse":false};PTC.ExtJSONTableConfig.initialRows=[]; PTC.ExtJSONTableConfig.chunk ={"id":"3","fromIndex":0,"totalCount":0,"transmissionState":"OPEN","resultState":"SUCCESSFUL"};PTC.ExtJSONTableConfig.totalRows=0;PTC.jca.renderTable(PTC.ExtJSONTableConfig);PTC.ExtJSONTableConfig = {}; </script><div id="netmarkets.project.list.table" class=" x-panel x-panel-noborder x-grid-panel" style="width: auto;"><div class="x-panel-bwrap" id="ext-gen377"><div class="x-panel-tbar x-panel-tbar-noheader x-panel-tbar-noborder" id="ext-gen378"><div id="netmarkets.project.list.table.titleBar" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="width: auto;"><table cellspacing="0" class="x-toolbar-ct"><tbody><tr><td class="x-toolbar-left" align="left"><table cellspacing="0"><tbody><tr class="x-toolbar-left-row"><td class="x-toolbar-cell" id="ext-gen416"><table id="netmarkets.project.list.table_toggle" cellspacing="0" class="x-btn tableToggle x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen417" class=" x-btn-text expandCollapse_collapsed">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell" id="ext-gen418"><div class="xtb-text" id="ext-comp-1069">專案</div></td><td class="x-toolbar-cell" id="ext-gen419"><div class="xtb-spacer" style="" id="ext-gen420"></div></td><td class="x-toolbar-cell" id="ext-gen421"><div id="ext-comp-1068" class=" x-panel x-panel-noborder"><div class="x-panel-bwrap" id="ext-gen422"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder" id="ext-gen423" style="height: auto;"><div class="x-form-field-wrap x-form-field-trigger-wrap" id="ext-gen440" style="width: 220px;"><input type="text" size="24" autocomplete="off" id="netmarkets.project.list.tablefilterSelect" name="netmarkets.project.list.tablefilterSelect" class="x-form-text x-form-field" style="width: 200px;"><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-form-trigger x-form-arrow-trigger" id="ext-gen441"></div></div></div></div></td><td class="x-toolbar-cell x-hide-display" id="ext-gen425"><table id="netmarkets.project.list.table_saveView" cellspacing="0" class="x-btn saveView x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen426" class=" x-btn-text saveView">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell" id="ext-gen427"><div class="xtb-text x-masked-relative x-masked" id="header_netmarkets.project.list.table_titleBarMask" style="visibility: hidden; height: 15px; width: 0px;"><div class="ext-el-mask-msg titleBarMask" id="ext-gen429" style="left: 3px; top: -1px;"><div class="titleBarkMaskMsg">正在載入…</div></div></div></td><td class="x-toolbar-cell x-hide-display" id="ext-gen430"><table id="header_netmarkets.project.list.table_cancelDataSourceButton" cellspacing="0" class="x-btn cancelButton x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen431" class=" x-btn-text cancelButtonIcon">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td></tr></tbody></table></td><td class="x-toolbar-right" align="right"><table cellspacing="0" class="x-toolbar-right-ct"><tbody><tr><td><table cellspacing="0"><tbody><tr class="x-toolbar-right-row"><td class="x-toolbar-cell" id="ext-gen432"><div class="xtb-text" id="ext-comp-1072"> <span class="tableCount">( 共 1 個物件 )</span> </div></td></tr></tbody></table></td><td><table cellspacing="0"><tbody><tr class="x-toolbar-extras-row"></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div><div id="netmarkets.project.list.table.toolBar" class="x-toolbar x-small-editor ecaToolbar x-toolbar-layout-ct" style="width: auto;"><table cellspacing="0" class="x-toolbar-ct" id="ext-gen462"><tbody><tr><td class="x-toolbar-left" align="left"><table cellspacing="0"><tbody><tr class="x-toolbar-left-row"><td class="x-toolbar-cell" id="ext-gen399"><table id="netmarkets.project.list.tableP7591119424030160_shortcutbar" cellspacing="0" class="x-btn  x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen400" class=" x-btn-text blist" style="background-image: url(&quot;netmarkets/images/newproject.gif&quot;);">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell" id="ext-gen401"><table id="netmarkets.project.list.tableP7591119424030161_shortcutbar" cellspacing="0" class="x-btn  x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen402" class=" x-btn-text blist" style="background-image: url(&quot;netmarkets/images/favorites_add.gif&quot;);">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell" id="ext-gen403"><table id="netmarkets.project.list.tableP7591119424030162_shortcutbar" cellspacing="0" class="x-btn  x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen404" class=" x-btn-text blist" style="background-image: url(&quot;netmarkets/images/openin_gantt.gif&quot;);">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td></tr></tbody></table></td><td class="x-toolbar-right" align="right"><table cellspacing="0" class="x-toolbar-right-ct"><tbody><tr><td><table cellspacing="0"><tbody><tr class="x-toolbar-right-row"><td class="x-toolbar-cell" id="ext-gen405"><div class="xtb-text" id="netmarkets.project.list.table.searchInListLoadingWheel" style="width: 25px; height: 15px;"></div></td><td class="x-toolbar-cell" id="ext-gen406"><label id="netmarkets.project.list.table.searchStatusLabel" class=" x-tip-header-text" style="margin-right: 5px; width: auto;">找到 1 個相符項</label></td><td class="x-toolbar-cell" id="ext-gen407"><div class="x-form-field-wrap x-form-field-trigger-wrap x-trigger-wrap-focus" id="ext-gen408" style="width: 135px;"><input type="text" size="16" autocomplete="off" id="netmarkets.project.list.table.searchInListTextBox" name="netmarkets.project.list.table.searchInListTextBox" class="x-form-text x-form-field x-form-focus" style="width: 97px;"><span class="x-form-twin-triggers" id="ext-gen409"><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-form-trigger x-form-clear-trigger" id="ext-gen410" style=""><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-form-trigger x-form-search-trigger" id="ext-gen411"></span></div></td><td class="x-toolbar-cell" id="ext-gen412"><table id="netmarkets.project.list.table_WTablePanel_selectedOnlyMenu" cellspacing="0" class="x-btn  x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="x-btn-arrow" unselectable="on"><button type="button" id="ext-gen413" class=" x-btn-text optionsButton">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell" id="ext-gen414"><table id="ext-comp-1087" cellspacing="0" class="x-btn help x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen415" class=" x-btn-text helpButton">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td></tr></tbody></table></td><td><table cellspacing="0"><tbody><tr class="x-toolbar-extras-row"></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div></div><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder" id="ext-gen379" style="width: auto; height: 94px;"><div class="x-grid3" hidefocus="true" id="ext-gen384" style="height: 95px;"><div class="x-grid3-viewport" id="ext-gen385"><div class="x-grid3-header" id="ext-gen386"><div class="x-grid3-header-inner" id="ext-gen392"><div class="x-grid3-header-offset" style="width: 2176.57px;"><table border="0" cellspacing="0" cellpadding="0" style="width: 2159.57px;"><thead><tr class="x-grid3-hd-row"><td class="x-grid3-hd x-grid3-cell x-grid3-td-checker x-grid3-cell-first " style="width:20px;"><div class="x-grid3-hd-inner x-grid3-hd-checker" unselectable="on" style="" id="ext-gen465"><a id="checker" class="x-grid3-hd-btn" href="#"></a><div ext:qtip="選取全部列" class="x-grid3-hd-checker">&nbsp;</div><img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-name" style="width: 1198.57px;"><div ext:qtip="依據「名稱」排序" class="x-grid3-hd-inner x-grid3-hd-name" unselectable="on" style=""><a id="name" class="x-grid3-hd-btn" href="#" style="height: 20px;"></a>名稱<img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-infoPageAction " style="width: 32px;"><div ext:qtip="檢視資訊" class="x-grid3-hd-inner x-grid3-hd-infoPageAction" unselectable="on" style=""><a id="infoPageAction" class="x-grid3-hd-btn" href="#"></a><span class="hiddenHeader">檢視資訊</span><img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-type_icon " style="width: 32px;"><div ext:qtip="依據「物件類型指示器」排序" class="x-grid3-hd-inner x-grid3-hd-type_icon" unselectable="on" style=""><a id="type_icon" class="x-grid3-hd-btn" href="#"></a><span class="hiddenHeader">物件類型指示器</span><img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-SCA|displayType " style="width:120px;"><div ext:qtip="依據「物件類型」排序" class="x-grid3-hd-inner x-grid3-hd-SCA|displayType" unselectable="on" style=""><a id="SCA|displayType" class="x-grid3-hd-btn" href="#"></a>物件類型<img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-projectPhase " style="width:120px;"><div ext:qtip="依據「階段」排序" class="x-grid3-hd-inner x-grid3-hd-projectPhase" unselectable="on" style=""><a id="projectPhase" class="x-grid3-hd-btn" href="#"></a>階段<img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-state" style="width:120px;"><div ext:qtip="依據「狀態」排序" class="x-grid3-hd-inner x-grid3-hd-state" unselectable="on" style=""><a id="state" class="x-grid3-hd-btn" href="#" style="height: 20px;"></a>狀態<img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-healthStatus" style="width:120px;"><div ext:qtip="狀況" class="x-grid3-hd-inner x-grid3-hd-healthStatus" unselectable="on" style=""><a id="healthStatus" class="x-grid3-hd-btn" href="#" style="height: 20px;"></a>狀況<img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-completionStatus" style="width: 120px;"><div ext:qtip="依據「完成狀況」排序" class="x-grid3-hd-inner x-grid3-hd-completionStatus" unselectable="on" style=""><a id="completionStatus" class="x-grid3-hd-btn" href="#" style="height: 20px;"></a>完成狀況<img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-thePersistInfo_modifyStamp " style="width:120px;"><div ext:qtip="依據「上次修改」排序" class="x-grid3-hd-inner x-grid3-hd-thePersistInfo_modifyStamp" unselectable="on" style=""><a id="thePersistInfo_modifyStamp" class="x-grid3-hd-btn" href="#"></a>上次修改<img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-projectHost " style="width:120px;"><div ext:qtip="依據「主持人」排序" class="x-grid3-hd-inner x-grid3-hd-projectHost" unselectable="on" style=""><a id="projectHost" class="x-grid3-hd-btn" href="#"></a>主持人<img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-stretcher x-grid3-cell-last " style="width:1px;"><div class="x-grid3-hd-inner x-grid3-hd-stretcher" unselectable="on" style=""><a id="stretcher" class="x-grid3-hd-btn" href="#"></a><img class="x-grid3-sort-icon" src="netmarkets/images/sp.gif"></div></td></tr></thead></table></div></div><div class="x-clear"></div></div><div class="x-grid3-scroller" id="ext-gen387" style="width: auto; height: 74px;"><div class="x-grid3-body" style="width: 2159.57px;" id="ext-gen388"><div class="x-grid3-row x-grid3-row-first x-grid3-row-last" style="width: 2159.57px; height: 22px;" id="ext-gen466"><table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width: 2159.57px; height: 22px;"><tbody><tr><td class="x-grid3-col x-grid3-cell x-grid3-td-checker x-grid3-cell-first " style="width:20px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-checker"><div class="x-grid3-row-checker">&nbsp;</div></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-name " style="width:1198.5714285714284px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-name"><a id="P7591119424030773" href="app/#ptc1/tcomp/infoPage?ContainerOid=OR%3Awt.projmgmt.admin.Project2%3A1673797403&amp;oid=OR%3Awt.projmgmt.admin.Project2%3A1673797403&amp;u8=1" onclick="PTC.learningConnector.sendCommand('view','object','wt.projmgmt.admin.Project2')" ext:qtip="EC24120401_PT-G510 改善案" class="linkfont">EC24120401_PT-G510 改善案</a></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-infoPageAction " style="width:32px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-infoPageAction"><a id="P7591119424030774" href="app/#ptc1/tcomp/infoPage?ContainerOid=OR%3Awt.projmgmt.admin.Project2%3A1673797403&amp;oid=OR%3Awt.projmgmt.admin.Project2%3A1673797403&amp;u8=1" onclick="PTC.learningConnector.sendCommand('view','object','wt.projmgmt.admin.Project2')" ext:qtip="檢視資訊" class="linkfont icon"><img src="netmarkets/images/details.gif" ext:qtip="檢視資訊" height="16" width="16" border="0" align="middle"></a></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-type_icon " style="width:32px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-type_icon"><img src="wtcore/images/proj.gif" ext:qtip="EC Project" qtip="EC Project"></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-SCA|displayType " style="width:120px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-SCA|displayType" ext:qtip="EC Project">EC Project</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-projectPhase " style="width:120px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-projectPhase" ext:qtip="P2">P2</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-state " style="width:120px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-state" ext:qtip="執行中">執行中</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-healthStatus " style="width:120px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-healthStatus"><img src="netmarkets/images/green.gif" alt="綠色" title="綠色" align="absmiddle" width="52" height="16"></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-completionStatus " style="width:120px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-completionStatus" ext:qtip="100%">100%</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-thePersistInfo_modifyStamp " style="width:120px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-thePersistInfo_modifyStamp"><span ext:qtip="2026/06/22, 13:08 TST">2026/06/22, 13:08 TST</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-projectHost " style="width:120px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-projectHost" ext:qtip="moxa">moxa</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-stretcher x-grid3-cell-last " style="width:1px;" tabindex="-1"><div class="x-grid3-cell-inner x-grid3-col-stretcher">&nbsp;</div></td></tr></tbody></table></div></div><a href="#" class="x-grid3-focus" tabindex="-1" id="ext-gen389" style="left: 0px; top: 1px;"></a></div></div><div class="x-grid3-resize-marker" id="ext-gen390">&nbsp;</div><div class="x-grid3-resize-proxy" id="ext-gen391">&nbsp;</div></div></div><div class="x-panel-bbar x-panel-bbar-noborder" id="ext-gen380"><div id="ext-comp-1067" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="width: auto;"><table cellspacing="0" class="x-toolbar-ct"><tbody><tr><td class="x-toolbar-left" align="left"><table cellspacing="0"><tbody><tr class="x-toolbar-left-row"><td class="x-toolbar-cell" id="ext-gen433"><div class="xtb-text" id="ext-comp-1088"> <span class="tableCount">( 已選取 0 個物件 )</span> </div></td><td class="x-toolbar-cell" id="ext-gen434"><div class="xtb-text x-masked-relative x-masked" id="footer_netmarkets.project.list.table_titleBarMask" style="visibility: hidden; height: 15px; width: 0px;"><div class="ext-el-mask-msg titleBarMask" id="ext-gen436" style="left: 3px; top: -1px;"><div class="titleBarkMaskMsg">正在載入…</div></div></div></td><td class="x-toolbar-cell x-hide-display" id="ext-gen437"><table id="footer_netmarkets.project.list.table_cancelDataSourceButton" cellspacing="0" class="x-btn cancelButton x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen438" class=" x-btn-text cancelButtonIcon">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td></tr></tbody></table></td><td class="x-toolbar-right" align="right"><table cellspacing="0" class="x-toolbar-right-ct"><tbody><tr><td><table cellspacing="0"><tbody><tr class="x-toolbar-right-row"></tr></tbody></table></td><td><table cellspacing="0"><tbody><tr class="x-toolbar-extras-row"></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div></div><div class="x-panel-footer x-panel-footer-noborder" id="ext-gen381"><div class="x-panel-resize" id="ext-gen397"></div></div></div></div></div><input type="hidden" name="netmarkets.project.list.tableofi" value="0"><input type="hidden" id="noItemString_table__netmarkets.project.list.table_TABLE" value="沒有可顯示的物件"><input type="hidden" id="selectAllCheckBox_table__netmarkets.project.list.table_TABLE" value="null"><input type="hidden" id="saveAsViewJavascriptUrl_table__netmarkets.project.list.table_TABLE" value="javascript:submitIt('saveAsView', 'null', '','','','','','','','','','','','','portlet', 'poppedup', 'context', 'comp\x24netmarkets\x24\x24','', '', 'comp\x24netmarkets\x24\x24', 'none', 'com.ptc.core.htmlcomp.components.SaveAsViewFormProcessor', 'execute', 'null', '','', false, 'P7591119424030159', 'row', '',false, 'table__netmarkets.project.list.table_TABLE'); PTC.learningConnector.sendCommand('saveAsView','table','null')"><input type="hidden" id="saveViewJavascriptUrl_table__netmarkets.project.list.table_TABLE" value="javascript:submitIt('saveView', 'null', '','','','','','','','','','','','','portlet', 'poppedup', 'context', 'comp\x24netmarkets\x24\x24','', '', 'comp\x24netmarkets\x24\x24', 'none', 'com.ptc.core.htmlcomp.components.SaveViewFormProcessor', 'execute', 'null', '','', false, 'P7591119424030158', 'row', '',false, 'table__netmarkets.project.list.table_TABLE'); PTC.learningConnector.sendCommand('saveView','table','null')">
+
+
+
+
+    <script type="text/javascript">pageLoadComplete=true;</script>
+
+
+</form></div></div></div></div><div id="contentPanel_twoPanes_horizontal" class=" x-panel x-hide-display"><div class="x-panel-bwrap" id="ext-gen81"><div class="x-panel-body contentBody x-panel-body-noheader x-border-layout-ct" id="ext-gen82"><div id="contentPanel_twoPanes_left" class=" x-panel x-border-panel"><div class="x-panel-bwrap" id="ext-gen98"><div class="x-panel-body x-panel-body-noheader" id="ext-gen99" style="overflow: auto;"><div id="twoPanes_LEFTPANE"></div></div></div></div><div id="contentPanel_twoPanes_center" class=" x-panel x-border-panel"><div class="x-panel-bwrap" id="ext-gen102"><div class="x-panel-body x-panel-body-noheader" id="ext-gen103" style="overflow: auto;"><div id="twoPanes_RIGHTPANE2"></div></div></div></div><div id="headerPane" class=" x-panel x-panel-noborder x-border-panel" style="width: 100%;"><div class="x-panel-bwrap" id="ext-gen105"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder" id="ext-gen106" style="height: 64px;"><div id="twoPanes_HEADERPANE"></div></div></div></div><div class="x-layout-split x-layout-split-west x-splitbar-h" id="contentPanel_twoPanes_left-xsplit">&nbsp;</div></div></div></div><div id="contentPanel_twoPanes_vertical" class=" x-panel x-hide-display"><div class="x-panel-bwrap" id="ext-gen84"><div class="x-panel-body contentBody x-panel-body-noheader x-border-layout-ct" id="ext-gen85"><div id="contentPanel_twoPanes_top" class=" x-panel x-border-panel"><div class="x-panel-bwrap" id="ext-gen108"><div class="x-panel-body x-panel-body-noheader" id="ext-gen109" style="overflow: auto; height: 200px;"><div id="twoPanes_TOPPANE"></div></div></div></div><div id="contentPanel_twoPanes_bottom" class=" x-panel x-border-panel"><div class="x-panel-bwrap" id="ext-gen112"><div class="x-panel-body x-panel-body-noheader" id="ext-gen113" style="overflow: auto;"><div id="twoPanes_BOTTOMPANE"></div></div></div></div><div class="x-layout-split x-layout-split-north x-splitbar-v" id="contentPanel_twoPanes_top-xsplit">&nbsp;</div></div></div></div></div></div></div></div><div class="x-box-bl x-panel-nofooter" id="ext-gen75"><div class="x-box-br"><div class="x-box-bc"></div></div></div></div></div></div></div></div></div><div id="header" class=" x-panel x-border-panel" style="left: 0px; top: 0px; width: 1280px;"><div style="height:41px" id="ext-gen23"><div class="x-panel-body x-panel-body-noheader" id="ext-gen24" style="height: 39px; width: 1270px;"><div id="pageHeaderActions"><table id="quickLinksButton" cellspacing="0" class="x-btn  x-btn-noicon" style="width: auto;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="x-btn-arrow" unselectable="on"><button type="button" id="ext-gen26" class=" x-btn-text">快速連結</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></div><div id="globalSearch"><div class="x-form-field-wrap x-form-field-trigger-wrap" id="ext-gen27" style="width: 193px;"><input type="text" size="16" autocomplete="off" id="gloabalSearchField" name="gloabalSearchField" class="x-form-text x-form-field x-form-empty-field" style="width: 156px;"><span class="x-form-twin-triggers" id="ext-gen28"><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-form-trigger global-search-trigger" id="ext-gen29"><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-form-trigger global-arrow-trigger" id="ext-gen30"></span></div></div><div id="typeChooserTrigger"><div class="x-form-field-wrap x-form-field-trigger-wrap" id="ext-gen31" style="width: 172px;"><input type="text" size="16" autocomplete="off" id="ext-comp-1003" name="ext-comp-1003" class="x-form-text x-form-field x-trigger-noedit" style="width: 152px;" readonly=""><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-form-trigger global-arrow-trigger" id="ext-gen32"></div></div><div id="divider"></div><table><tbody><tr><td><div id="logoNav" class="wncApplLogo windchillLogo"></div></td><td><span id="globalUser">Minna_Lee</span></td></tr></tbody></table></div></div></div><div id="navigatorPanel" class="x-panel x-border-panel x-panel-collapsed" style="position: relative; width: 397px; left: 0px; top: 40px; height: auto; display: none;"><div class="x-panel-bwrap" id="ext-gen33"><div class="x-panel-body x-navigatorPanel-body x-panel-body-noheader" id="ext-gen34" style="height: auto; width: 845px;"><div id="navigatorPanelContentArea" class=" x-panel"><div class="x-panel-bwrap" id="ext-gen36"><div class="x-panel-body x-panel-body-noheader" id="ext-gen37" style="height: auto;"><div id="navigatorTabPanel" class=" x-tab-panel" style="width: auto;"><div class="x-tab-panel-header x-unselectable" id="ext-gen38"><div class="x-tool x-tool-home" id="ext-gen41">&nbsp;</div><div class="x-tab-strip-wrap" id="ext-gen42"><ul class="x-tab-strip x-tab-strip-top" id="ext-gen44"><li class="" id="navigatorTabPanel__object_search_navigation"><a class="x-tab-strip-close" id="ext-gen47"></a><a class="x-tab-right" href="#" id="ext-gen48"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text ">搜尋(<u class="mnemonic">S</u>)</span></span></em></a></li><li class="x-tab-strip-active" id="navigatorTabPanel__object_main_navigation"><a class="x-tab-strip-close" id="ext-gen49"></a><a class="x-tab-right" href="#" id="ext-gen50"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text " id="ext-gen368">瀏覽(<u class="mnemonic">w</u>)</span></span></em></a></li><li class="x-tab-edge" id="ext-gen45"><span class="x-tab-strip-text">&nbsp;</span></li><div class="x-clear" id="ext-gen46"></div></ul></div><div class="x-tab-strip-spacer" id="ext-gen43"></div></div><div class="x-tab-panel-bwrap" id="ext-gen39"><div class="x-tab-panel-body x-tab-panel-body-top" id="ext-gen40" style="width: auto; height: 627px;"><div id="object_search_navigation" class=" x-tab-panel x-tab-panel-noborder x-hide-display" style="width: auto;"><div class="x-tab-panel-header x-tab-panel-header-noborder x-unselectable" id="ext-gen51"><div class="x-tool x-tool-windchillHelp" id="ext-gen54">&nbsp;</div><div class="x-tab-strip-wrap" id="ext-gen55"><ul class="x-tab-strip x-tab-strip-top" id="ext-gen57"><li class="navigator-tab navigator-tab-text x-tab-strip-active" id="object_search_navigation__historySavedNavigation"><a class="x-tab-strip-close" id="ext-gen60"></a><a class="x-tab-right" href="#" id="ext-gen61"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text ">搜尋記錄和已存搜尋</span></span></em></a></li><li class=" navigator-tab navigator-tab-text" id="object_search_navigation__advancedNavigation"><a class="x-tab-strip-close" id="ext-gen62"></a><a class="x-tab-right" href="#" id="ext-gen63"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text ">進階搜尋</span></span></em></a></li><li class=" navigator-tab navigator-tab-text" id="object_search_navigation__classificationExplorerNavigation"><a class="x-tab-strip-close" id="ext-gen64"></a><a class="x-tab-right" href="#" id="ext-gen65"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text ">分類總管</span></span></em></a></li><li class="x-tab-edge" id="ext-gen58"><span class="x-tab-strip-text">&nbsp;</span></li><div class="x-clear" id="ext-gen59"></div></ul></div><div class="x-tab-strip-spacer" id="ext-gen56"></div></div><div class="x-tab-panel-bwrap" id="ext-gen52"><div class="x-tab-panel-body x-tab-panel-body-noborder x-tab-panel-body-top" id="ext-gen53" style="width: auto; height: 575px;"><div id="object_search_navigation-contentDiv"></div><div id="historySavedNavigation" class=" x-panel x-panel-noborder" style="width: auto;"><div class="x-panel-bwrap" id="ext-gen66"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder" id="ext-gen67" style="overflow: auto; width: auto; height: 575px;"><div id="historySavedNavigation-contentDiv">	
+
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  
+	
+
+
+
+
+   
+
+   
+      
+   
+
+
+
+
+
+   
+
+
+
+   
+   
+
+   
+   
+      
+      
+         <form name="mainform" id="mainform" method="POST" action="https://pap.moxa.com/Windchill/ptc1/search/historySavedSearchDisplay?portlet=component&amp;wt.reqGrp=4eijh0dv%3Bmrkw0m6s%3B2837782%3Bmomoeg%3B755840&amp;u8=1"><input type="hidden" class="jca" name="openerCompContext" value="none"><input type="hidden" class="jca" name="openerElemAddress" value="none"><input type="hidden" class="jca" name="openerActionClass" value="none"><input type="hidden" class="jca" name="openerActionMethod" value="none"><input type="hidden" class="jca" name="openerExecuteLocation" value="none"><input type="hidden" class="jca" name="current" value="none"><input type="hidden" class="jca" name="selectedInOpener" value="none"><input type="hidden" class="jca" name="nmwindowname" value="none"><input type="hidden" class="jca" name="compContext" value="none"><input type="hidden" class="jca" name="elemAddress" value="none"><input type="hidden" class="jca" name="actionClass" value="none"><input type="hidden" class="jca" name="actionMethod" value="none"><input type="hidden" class="jca" name="popupCompContext" value="none"><input type="hidden" class="jca" name="popupElemAddress" value="none"><input type="hidden" class="jca" name="popupActionClass" value="none"><input type="hidden" class="jca" name="popupActionMethod" value="none"><input type="hidden" class="jca" name="nmwidth" value="none"><input type="hidden" class="jca" name="nmheight" value="none"><input type="hidden" class="jca" name="xposition" value="none"><input type="hidden" class="jca" name="yposition" value="none"><input type="hidden" class="jca" name="refreshedFromPopup" value="none"><input type="hidden" class="jca" name="onPageAction" value="none"><input type="hidden" class="jca" name="executeLocation" value="inbegin"><input type="hidden" class="jca" name="popupExecuteLocation" value="inbegin"><input type="hidden" class="jca" id="ProECommandInput"><input type="hidden" class="jca" id="ProECommandOutput"><input type="hidden" class="jca" name="CSRF_NONCE" value="w15ebukE9n04dBL3hxM1BqhGhB8BRHywgmokNpNygxV/EFnAjG85W6Bvlz5LJFu2hAczG4VQxkACRSXP92ttV989wE8ATCiumW80XYNPnDdyGj2ZlwoRO6U9mRdPOVyFrwg4DKJhozhhQlq7rjttWKVVyw==">
+      
+      
+       
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--CONTENT_AREA-->
+
+ 
+	
+	<script type="text/javascript">
+		if (PTC.getMainWindow() && PTC.getMainWindow().PTC && PTC.getMainWindow().PTC.performance) {
+			PTC.getMainWindow().PTC.performance.startComponentTimer('HistorySavedSearch', 'Page Loaded');
+		}
+	</script>
+	
+	
+	
+	 
+
+	 <table id="historysaved" width="100%" cellspacing="30">
+		<tbody><tr>
+			<td id="SearchHistoryTD" width="50%" valign="top"> <b>搜尋記錄</b> <hr align="left">
+				
+ 		
+ 
+	 	<input type="hidden" name="savedQueryList" id="savedQueryList">
+	 	
+	
+		<br><b> 今天  </b><br><table width="98%">
+			  
+				  
+					  
+					    	 
+			    
+				  
+			  
+		  
+		</table>  
+		<table class="historysaved" width="98%">
+		<script>
+			PTC.search.clearSearchInTable();
+		</script>
+			
+					
+									
+					
+					  
+					  
+						<tbody><tr class="historysaved">
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1866287585&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1866287585', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>0000441571</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1866287585&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+						<tr>  		
+					  
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1866282122&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1866282122', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2710041310039</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1866282122&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+					  
+						<tr class="historysaved">
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1866273080&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1866273080', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2610040000313</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1866273080&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+						<tr>  		
+					  
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1865739777&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1865739777', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2720040003017</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1865739777&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+					  
+						<tr class="historysaved">
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1865399993&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1865399993', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2720040003018</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1865399993&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+						<tr>  		
+					  
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1860760991&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1860760991', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2010040003016</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1860760991&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+					  
+						<tr class="historysaved">
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1865401538&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1865401538', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2610040000314</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1865401538&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+		</tbody></table>
+         
+		<br><b> 較舊  </b><br><table width="98%">
+			  
+				  
+			  
+		
+				   		
+				        
+				   
+		   
+			  
+		  
+		</table>  
+		<table class="historysaved" width="98%">
+		<script>
+			PTC.search.clearSearchInTable();
+		</script>
+			
+					
+									
+					
+					  
+					  
+						<tbody><tr class="historysaved">
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1865399926&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1865399926', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2010040003015</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1865399926&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+						<tr>  		
+					  
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1864285934&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1864285934', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>EC24120401</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1864285934&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+					  
+						<tr class="historysaved">
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1864431462&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1864431462', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2010020080013</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1864431462&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+						<tr>  		
+					  
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1864367309&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1864367309', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2710005161A44</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1864367309&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+					  
+						<tr class="historysaved">
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1864287796&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1864287796', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2720005161A45</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1864287796&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+						<tr>  		
+					  
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1863721019&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1863721019', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2720012001015</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1863721019&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+					  
+						<tr class="historysaved">
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1863020234&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1863020234', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2010065008021</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1863020234&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+					
+									
+					
+					  
+						<tr>  		
+					  
+					  
+					  			
+				<td width="95%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1863236576&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SearchHistory:1863236576', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">關鍵字=<b>2720065005011</b>; 類型=<b>全部類型</b>; 前後關聯=<b>全部前後關聯</b></a>
+				</td>
+				<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?selectedHistoryItem=wt.query.SearchHistory:1863236576&amp;fireSearch=false&quot;)">
+					<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+			    </tr>
+			
+		</tbody></table>
+            
+
+			</td>
+			
+			<td id="SavedSearchTD" width="50%" valign="top">
+			
+				<table width="100%">
+					<tbody><tr>
+						<td>
+						
+							<b>已存搜尋</b>
+						</td>
+						<td align="right">
+							<a id="P7591061243915266" href="javascript:newLightBoxAction('savedSearchTable', 'ptc1/search/savedSearchTable', '','','','','','','','','','','','','portlet', 'poppedup', 'context', 'search\x24historySavedSearchDisplay\x24\x24','', '', 'search\x24historySavedSearchDisplay\x24\x24', 'none', 'com.ptc.netmarkets.search.NmSearchCommands', '', 'height=450,width=920', '','', false, 'P7591061243915266', 'component', '',false, null)" onclick="PTC.learningConnector.sendCommand('savedSearchTable','search','null')" title="管理" class="linkfont">管理</a> 
+							&nbsp;&nbsp; 
+						</td>
+					</tr>
+				</tbody></table>
+				<hr align="left">
+					
+	
+
+	<br><b> 由我建立  </b><br><table width="98%"> 
+		  
+			
+						  	
+			  	 
+			 
+			 
+		   
+	</table> 
+ 	<table class="historysaved" width="98%">
+
+	   
+	   		
+			
+	 		
+		 	  
+		 	  
+	 	  		<tbody><tr class="historysaved">
+		 	  
+		 	  			
+            	<td id="link" width="90%">
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?isQuerySelected=true&amp;savedQueryList=wt.query.SavedQuery:1403021820&amp;fireSearch=true&amp;containerRef=&quot;)" onmouseover="searchPageInfo.queueMiniInfo('OR:wt.query.SavedQuery:1403021820', event, 500);" onmouseout="searchPageInfo.cancelMiniInfo(500);" onclick="searchPageInfo.cancelMiniInfo(500);">PSN</a>			            
+	          	</td>
+            	<td width="5%"> 
+					<a href="javascript:loadAdvSearchPage(&quot;event&quot;,&quot;netmarkets/jsp/search/search.jsp?isQuerySelected=true&amp;savedQueryList=wt.query.SavedQuery:1403021820&amp;fireSearch=false&quot;)">		            	
+            		<img src="netmarkets/images/edit_pencil.gif" ext:qtip="編輯條件"></a>  
+				</td>
+				
+					<td width="5%">
+						<a href="javascript:deleteSavedQuery(&quot;wt.query.SavedQuery:1403021820&quot;)">
+						<img src="netmarkets/images/delete.gif" ext:qtip="刪除此搜尋"> </a>  
+	            	</td>
+            	 
+            </tr>
+           
+ 	</tbody></table>
+ 
+	<table width="98%"> 
+		  
+			
+			  
+				
+			 
+		   
+	</table> 
+ 	<table class="historysaved" width="98%">
+
+	   
+ 	</table>
+ 
+
+			</td>
+	
+		</tr>
+	</tbody></table>
+
+	
+	
+<!--CONTENT_AREA-->
+
+
+
+    	
+			
+			        
+			        
+			    
+			    
+			
+    	
+    	
+
+
+    <!-- negate onunload cancel request, page load completed -->
+    <script type="text/javascript">
+        pageLoadComplete=true;
+    </script>
+
+
+	
+
+	<style type="text/css">
+		 table.historysaved { margin-left : 2%; }
+		 tr.historysaved { background-color : #E8E8E8; }
+	</style>	 	
+	
+	<script type="text/javascript">
+		if (PTC.getMainWindow() && PTC.getMainWindow().PTC && PTC.getMainWindow().PTC.performance) {
+			PTC.getMainWindow().PTC.performance.stopComponentTimer('HistorySavedSearch');
+		}
+	</script>
+</form></div></div></div></div></div></div></div><div id="object_main_navigation" class=" x-tab-panel x-tab-panel-noborder" style="width: auto;"><div class="x-tab-panel-header x-tab-panel-header-noborder x-unselectable" id="ext-gen327"><div class="x-tab-strip-wrap" id="ext-gen330"><ul class="x-tab-strip x-tab-strip-top" id="ext-gen332"><li class="x-tab-with-icon navigator-tab" id="object_main_navigation__recentContextsNavigation"><a class="x-tab-strip-close" id="ext-gen335"></a><a class="x-tab-right" href="#" id="ext-gen336"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text recentContextsNavigation-icon" id="ext-gen358"></span></span></em></a></li><li class="x-tab-with-icon navigator-tab" id="object_main_navigation__productNavigation"><a class="x-tab-strip-close" id="ext-gen337"></a><a class="x-tab-right" href="#" id="ext-gen338"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text productNavigation-icon" id="ext-gen360"></span></span></em></a></li><li class="x-tab-with-icon navigator-tab" id="object_main_navigation__libraryNavigation"><a class="x-tab-strip-close" id="ext-gen339"></a><a class="x-tab-right" href="#" id="ext-gen340"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text libraryNavigation-icon" id="ext-gen361"></span></span></em></a></li><li class="x-tab-with-icon navigator-tab x-tab-strip-active" id="object_main_navigation__projectNavigation"><a class="x-tab-strip-close" id="ext-gen341"></a><a class="x-tab-right" href="#" id="ext-gen342"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text projectNavigation-icon" id="ext-gen362"><table id="ext-comp-1066" cellspacing="0" class="x-btn x-btn-icon"><tbody class="x-btn-large x-btn-icon-large-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen375" class=" x-btn-text" style="background-image: url(&quot;netmarkets/images/navigator_project.png&quot;);">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></span></span></em></a></li><li class=" x-tab-with-icon navigator-tab" id="object_main_navigation__changeNavigation"><a class="x-tab-strip-close" id="ext-gen343"></a><a class="x-tab-right" href="#" id="ext-gen344"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text changeNavigation-icon" id="ext-gen363"></span></span></em></a></li><li class=" x-tab-with-icon navigator-tab" id="object_main_navigation__supplierNavigation"><a class="x-tab-strip-close" id="ext-gen345"></a><a class="x-tab-right" href="#" id="ext-gen346"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text supplierNavigation-icon" id="ext-gen364"></span></span></em></a></li><li class=" x-tab-with-icon navigator-tab" id="object_main_navigation__customizationNavigation"><a class="x-tab-strip-close" id="ext-gen347"></a><a class="x-tab-right" href="#" id="ext-gen348"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text customizationNavigation-icon" id="ext-gen365"></span></span></em></a></li><li class=" x-tab-with-icon navigator-tab" id="object_main_navigation__pcmsreportNavigation"><a class="x-tab-strip-close" id="ext-gen349"></a><a class="x-tab-right" href="#" id="ext-gen350"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text pcmsreportNavigation-icon" id="ext-gen366"></span></span></em></a></li><li class=" x-tab-with-icon navigator-tab" id="object_main_navigation__productTreeNavigation"><a class="x-tab-strip-close" id="ext-gen351"></a><a class="x-tab-right" href="#" id="ext-gen352"><em class="x-tab-left"><span class="x-tab-strip-inner"><span class="x-tab-strip-text productTreeNavigation-icon" id="ext-gen367"></span></span></em></a></li><li class="x-tab-edge" id="ext-gen333"><span class="x-tab-strip-text">&nbsp;</span></li><div class="x-clear" id="ext-gen334"></div></ul></div><div class="x-tab-strip-spacer" id="ext-gen331"></div></div><div class="x-tab-panel-bwrap" id="ext-gen328"><div class="x-tab-panel-body x-tab-panel-body-noborder x-tab-panel-body-top" id="ext-gen329" style="width: auto; height: 567px;"><div id="object_main_navigation-contentDiv"></div><div id="recentContextsNavigation" class=" x-panel x-panel-noborder x-tree x-hide-display" style="width: auto;"><div class="x-panel-header navigator-treePanel-header x-panel-header-noborder x-unselectable" id="ext-gen353">最近瀏覽過</div><div class="x-panel-bwrap" id="ext-gen354"><div class="x-panel-body navigator-treePanel-body x-panel-body-noborder" id="ext-gen355" style="overflow: auto; width: auto; height: 542px;"><ul class="x-tree-root-ct x-tree-arrows" id="ext-gen356"><div class="x-tree-root-node"><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.pdmlink.PDMLinkProduct:1274292195" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/com/ptc/core/ui/images/iconProductContext.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">RKS-G4028 Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.pdmlink.PDMLinkProduct:922432794" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/com/ptc/core/ui/images/iconProductContext.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">PT-G7728 Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.pdmlink.PDMLinkProduct:1669032545" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/com/ptc/core/ui/images/iconProductContext.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">BXP-A101 Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.pdmlink.PDMLinkProduct:1674373759" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/com/ptc/core/ui/images/iconProductContext.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">ioPAC 6500 Series (65M) Communication Modules</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.pdmlink.PDMLinkProduct:1859477293" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/com/ptc/core/ui/images/iconProductContext.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">ioPAC 6500 Series (65M) Firewall Modules</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.inf.library.WTLibrary:95028" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/netmarkets/images/libcontext_tem.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">IE_Software_Component_Library</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.inf.library.WTLibrary:98848" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/netmarkets/images/libcontext_tem.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">Tech_Software_Component_Library</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.inf.library.WTLibrary:95771" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/netmarkets/images/libcontext_tem.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">Tech_PCB_BO_Library</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.inf.library.WTLibrary:93142" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/netmarkets/images/libcontext_tem.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">IE_PCB_BO_Library</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.inf.library.WTLibrary:96763" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/netmarkets/images/libcontext_tem.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">Tech_Semi-Finished_Goods_Library</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.projmgmt.admin.Project2:1673797403" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">EC24120401_PT-G510 改善案</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.projmgmt.admin.Project2:1163512887" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP20103001_PT-G510 PRP/HSR din-rail switch</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.projmgmt.admin.Project2:1723020367" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP25051901_New Generation NPort 5600-8/16-G2 Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.projmgmt.admin.Project2:1766018023" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">CV25102701_廣達標案網路建置_4G/5G+Wifi 6 Mesh</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="recentContexts_~_OR:wt.projmgmt.admin.Project2:1756464059" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-end-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">CV25090901_UPort 1610-8-G2 (CV-RJ50) for TSMC</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li></div></ul></div></div></div><div id="projectNavigation" class=" x-panel x-panel-noborder x-tree" style="width: auto;"><div class="x-panel-header navigator-treePanel-header x-panel-header-noborder x-unselectable" id="ext-gen369"><div class="x-tool navigator-treePanel-tool-viewAll" id="ext-gen372"><a href="app/#ptc1/comp/netmarkets.project.list.table">檢視全部</a></div>最近存取的專案</div><div class="x-panel-bwrap" id="ext-gen370"><div class="x-panel-body navigator-treePanel-body x-panel-body-noborder" id="ext-gen371" style="overflow: auto; width: auto; height: 542px;"><ul class="x-tree-root-ct x-tree-arrows" id="ext-gen373"><div class="x-tree-root-node"><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1673797403" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">EC24120401_PT-G510 改善案</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1163512887" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP20103001_PT-G510 PRP/HSR din-rail switch</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1723020367" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP25051901_New Generation NPort 5600-8/16-G2 Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1766018023" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">CV25102701_廣達標案網路建置_4G/5G+Wifi 6 Mesh</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1756464059" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">CV25090901_UPort 1610-8-G2 (CV-RJ50) for TSMC</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1694438743" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP25041001_DA-920E Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1735009151" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">EC25070102_AIG-302 IMG V1.4.0 For SDLC Level B</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1083418585" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP20013101_RKS-G4028 &amp; RKS-G4028-L3 Rackmount Switches</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1800640167" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">CV26031001_EDS-510A-3SFP-2SSC、EOM-409-3SSC 本安電源改善案</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1791777000" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">EC26011601_DLM On-premise V1.2</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1681172750" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP24091801-2_BXP-A101 Series_M.2 model</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1655739546" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP24091801_BXP-A101 Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1641472003" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP24011701-1_TWS-3010-APL/SPE series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1772171812" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">EC25111001_MXview One v1.7.0</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1717192390" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">ER25042301_MIL3 V3.4 for V3000</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1555264152" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP23073101_ RKS-G4000-PL &amp; RM-G4000-PL series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1648889695" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP24082001_New Generation MGate MB3660-DT-G2 Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1500188286" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP19120901-2_New Generation NPort 6400-G2 &amp; 6600-G2</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1691959981" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">ER25031804_RED_Wi-Fi 4_AWK-3131A (ASTS)/TAP-323 (ASTS)_Hitachi</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1622292718" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">EC24051501_MIL 3.3 for UC-4400A.UC-8200</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1636227776" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">ER24061801_TN-A series FWR V4.0 VR</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1691939188" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP24011701-2_TWS-3010-APL-8PS-2GC-T</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1407427942" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP22091301_AWK-116x Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1175674938" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP20122501_MDS-G4000-4XGS Layer 2&amp; Layer3-T Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li><li class="x-tree-node"><div ext:tree-node-id="project_~_OR:wt.projmgmt.admin.Project2:1533297409" class="x-tree-node-el x-unselectable file x-tree-node-collapsed" unselectable="on"><span class="x-tree-node-indent"></span><img src="https://pap.moxa.com/Windchill/netmarkets/images/sp.gif" class="x-tree-ec-icon x-tree-elbow-end-plus"><img src="https://pap.moxa.com/Windchill/wtcore/images/proj.gif" class="x-tree-node-icon x-tree-node-inline-icon" unselectable="on"><a hidefocus="on" class="x-tree-node-anchor" href="#" tabindex="1"><span unselectable="on">NP23052301_RKP-C110 Series</span></a></div><ul class="x-tree-node-ct" style="display:none;"></ul></li></div></ul></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="x-resizable-handle x-resizable-handle-east x-unselectable" id="ext-gen35" style="left: 427px;"></div></div>
+    
+   
+        
+     
+    
+
+
+
+
+<script language="Javascript">
+var timeZoneDisplayNames = {
+
+  '-300' :  {
+     'displayName': 'EST',
+     'daylightSavingName': 'EDT',
+     'useDayLightTime': true
+  },
+  '-180' :  {
+     'displayName': 'BRT',
+     'daylightSavingName': 'BRST',
+     'useDayLightTime': false
+  },
+  '600' :  {
+     'displayName': 'VLAT',
+     'daylightSavingName': 'VLAST',
+     'useDayLightTime': false
+  },
+  '180' :  {
+     'displayName': 'EAT',
+     'daylightSavingName': 'EAST',
+     'useDayLightTime': false
+  },
+  '180' :  {
+     'displayName': 'AST',
+     'daylightSavingName': 'ADT',
+     'useDayLightTime': false
+  },
+  '120' :  {
+     'displayName': 'EET',
+     'daylightSavingName': 'EEST',
+     'useDayLightTime': true
+  },
+  '-120' :  {
+     'displayName': 'GST',
+     'daylightSavingName': 'GDT',
+     'useDayLightTime': false
+  },
+  '180' :  {
+     'displayName': 'MSK',
+     'daylightSavingName': 'MSD',
+     'useDayLightTime': false
+  },
+  '300' :  {
+     'displayName': 'PKT',
+     'daylightSavingName': 'PKST',
+     'useDayLightTime': false
+  },
+  '-600' :  {
+     'displayName': 'HAST',
+     'daylightSavingName': 'HADT',
+     'useDayLightTime': false
+  },
+  '0' :  {
+     'displayName': 'GMT',
+     'daylightSavingName': 'BST',
+     'useDayLightTime': true
+  },
+  '570' :  {
+     'displayName': 'ACST',
+     'daylightSavingName': 'ACDT',
+     'useDayLightTime': false
+  },
+  '180' :  {
+     'displayName': 'AST',
+     'daylightSavingName': 'ADT',
+     'useDayLightTime': false
+  },
+  '60' :  {
+     'displayName': 'CET',
+     'daylightSavingName': 'CEST',
+     'useDayLightTime': true
+  },
+  '0' :  {
+     'displayName': 'WET',
+     'daylightSavingName': 'WEST',
+     'useDayLightTime': true
+  },
+  '-300' :  {
+     'displayName': 'COT',
+     'daylightSavingName': 'COST',
+     'useDayLightTime': false
+  },
+  '330' :  {
+     'displayName': 'IST',
+     'daylightSavingName': 'IDT',
+     'useDayLightTime': false
+  },
+  '-600' :  {
+     'displayName': 'HAST',
+     'daylightSavingName': 'HADT',
+     'useDayLightTime': true
+  },
+  '270' :  {
+     'displayName': 'AFT',
+     'daylightSavingName': 'AFST',
+     'useDayLightTime': false
+  },
+  '-120' :  {
+     'displayName': 'EGT',
+     'daylightSavingName': 'EGST',
+     'useDayLightTime': true
+  },
+  '120' :  {
+     'displayName': 'EET',
+     'daylightSavingName': 'EEST',
+     'useDayLightTime': true
+  },
+  '120' :  {
+     'displayName': 'EET',
+     'daylightSavingName': 'EEST',
+     'useDayLightTime': true
+  },
+  '-300' :  {
+     'displayName': 'EST',
+     'daylightSavingName': 'EDT',
+     'useDayLightTime': true
+  },
+  '-60' :  {
+     'displayName': 'AZOT',
+     'daylightSavingName': 'AZOST',
+     'useDayLightTime': true
+  },
+  '60' :  {
+     'displayName': 'CET',
+     'daylightSavingName': 'CEST',
+     'useDayLightTime': true
+  },
+  '120' :  {
+     'displayName': 'CAT',
+     'daylightSavingName': 'CAST',
+     'useDayLightTime': false
+  },
+  '0' :  {
+     'displayName': 'GMT',
+     'daylightSavingName': 'GMT',
+     'useDayLightTime': false
+  },
+  '-540' :  {
+     'displayName': 'AKST',
+     'daylightSavingName': 'AKDT',
+     'useDayLightTime': true
+  },
+  '-360' :  {
+     'displayName': 'CST',
+     'daylightSavingName': 'CDT',
+     'useDayLightTime': true
+  },
+  '540' :  {
+     'displayName': 'YAKT',
+     'daylightSavingName': 'YAKST',
+     'useDayLightTime': false
+  },
+  '-240' :  {
+     'displayName': 'AST',
+     'daylightSavingName': 'ADT',
+     'useDayLightTime': true
+  },
+  '-360' :  {
+     'displayName': 'CST',
+     'daylightSavingName': 'CDT',
+     'useDayLightTime': false
+  },
+  '720' :  {
+     'displayName': 'FJT',
+     'daylightSavingName': 'FJST',
+     'useDayLightTime': false
+  },
+  '60' :  {
+     'displayName': 'CET',
+     'daylightSavingName': 'CEST',
+     'useDayLightTime': true
+  },
+  '720' :  {
+     'displayName': 'NZST',
+     'daylightSavingName': 'NZDT',
+     'useDayLightTime': true
+  },
+  '0' :  {
+     'displayName': 'WET',
+     'daylightSavingName': 'WEST',
+     'useDayLightTime': false
+  },
+  '-240' :  {
+     'displayName': 'VET',
+     'daylightSavingName': 'VEST',
+     'useDayLightTime': false
+  },
+  '210' :  {
+     'displayName': 'IRST',
+     'daylightSavingName': 'IRDT',
+     'useDayLightTime': false
+  },
+  '360' :  {
+     'displayName': 'BDT',
+     'daylightSavingName': 'BDST',
+     'useDayLightTime': false
+  },
+  '660' :  {
+     'displayName': 'MAGT',
+     'daylightSavingName': 'MAGST',
+     'useDayLightTime': false
+  },
+  '480' :  {
+     'displayName': 'TST',
+     'daylightSavingName': 'TDT',
+     'useDayLightTime': false
+  },
+  '-360' :  {
+     'displayName': 'CST',
+     'daylightSavingName': 'CDT',
+     'useDayLightTime': false
+  },
+  '420' :  {
+     'displayName': 'ICT',
+     'daylightSavingName': 'ICST',
+     'useDayLightTime': false
+  },
+  '600' :  {
+     'displayName': 'ChST',
+     'daylightSavingName': 'ChDT',
+     'useDayLightTime': false
+  },
+  '-210' :  {
+     'displayName': 'NST',
+     'daylightSavingName': 'NDT',
+     'useDayLightTime': true
+  },
+  '240' :  {
+     'displayName': 'GST',
+     'daylightSavingName': 'GDT',
+     'useDayLightTime': false
+  },
+  '-420' :  {
+     'displayName': 'MST',
+     'daylightSavingName': 'MDT',
+     'useDayLightTime': true
+  },
+  '60' :  {
+     'displayName': 'CET',
+     'daylightSavingName': 'CEST',
+     'useDayLightTime': true
+  },
+  '-180' :  {
+     'displayName': 'ART',
+     'daylightSavingName': 'ARST',
+     'useDayLightTime': false
+  },
+  '540' :  {
+     'displayName': 'KST',
+     'daylightSavingName': 'KDT',
+     'useDayLightTime': false
+  },
+  '600' :  {
+     'displayName': 'AEST',
+     'daylightSavingName': 'AEDT',
+     'useDayLightTime': true
+  },
+  '780' :  {
+     'displayName': 'WSST',
+     'daylightSavingName': 'WSDT',
+     'useDayLightTime': false
+  },
+  '540' :  {
+     'displayName': 'JST',
+     'daylightSavingName': 'JDT',
+     'useDayLightTime': false
+  },
+  '570' :  {
+     'displayName': 'ACST',
+     'daylightSavingName': 'ACDT',
+     'useDayLightTime': true
+  },
+  '330' :  {
+     'displayName': 'IST',
+     'daylightSavingName': 'IDT',
+     'useDayLightTime': false
+  },
+  '-420' :  {
+     'displayName': 'MST',
+     'daylightSavingName': 'MDT',
+     'useDayLightTime': false
+  },
+  '-480' :  {
+     'displayName': 'PST',
+     'daylightSavingName': 'PDT',
+     'useDayLightTime': true
+  },
+  '600' :  {
+     'displayName': 'AEST',
+     'daylightSavingName': 'AEDT',
+     'useDayLightTime': false
+  },
+  '-360' :  {
+     'displayName': 'CST',
+     'daylightSavingName': 'CDT',
+     'useDayLightTime': false
+  },
+  '-60' :  {
+     'displayName': 'CVT',
+     'daylightSavingName': 'CVST',
+     'useDayLightTime': false
+  },
+  '300' :  {
+     'displayName': 'YEKT',
+     'daylightSavingName': 'YEKST',
+     'useDayLightTime': false
+  },
+  '120' :  {
+     'displayName': 'EET',
+     'daylightSavingName': 'EEST',
+     'useDayLightTime': true
+  },
+  '120' :  {
+     'displayName': 'IST',
+     'daylightSavingName': 'IDT',
+     'useDayLightTime': true
+  }
+};
+var rawOffsetAsPerTimeZonePref = null;
+function formatDate(date, applyTimeZonePref, isDateOnly) {
+if(isApplyTimeZonePreference(applyTimeZonePref)) {// # D-25046 (Version One) : Added isAutomationTest check, so that timezone preference value is honoured in case of automation test as well. 
+  var utc_time_in_ms = date.getTime() + (date.getTimezoneOffset() * 60000);
+  // in trail replay mode, offset the actual value of time to the preference based time zone
+  var standard_time_in_tz = utc_time_in_ms + (28800000);
+  date = new Date(standard_time_in_tz);
+  rawOffsetAsPerTimeZonePref = (480);
+} // isWfTrlReplay() check ends
+var yyyy = date.getFullYear();
+var MM = (date.getMonth() + 1);
+if ( MM < 10 ) MM = "0" + MM;
+var dd = date.getDate();
+if (dd < 10 ) dd = "0" + dd;
+var HH = date.getHours();
+if (HH < 10 ) HH = "0" + HH;
+var mm = date.getMinutes();
+if (mm < 10 ) mm = "0" + mm;
+var timeZoneShortDisplayName = '';
+var timeZoneDisplayNameInfo = getClientTimeZoneDisplayNameInfo(applyTimeZonePref);
+if (timeZoneDisplayNameInfo) {
+  timeZoneShortDisplayName = timeZoneDisplayNameInfo['displayName'];
+  if (timeZoneDisplayNameInfo['useDayLightTime']) {
+    if (!(date instanceof Date)){
+      date = new Date(date.toString());
+    }
+    if (date.isDST()) {
+       timeZoneShortDisplayName = timeZoneDisplayNameInfo['daylightSavingName'];
+    }
+  }
+}
+var zzz = timeZoneShortDisplayName;
+var date_str = ""  + yyyy + "/" + MM + "/" + dd + "," + " " + HH + ":" + mm + " " + zzz;
+var dateOnly_str = ""  + yyyy + "/" + MM + "/" + dd + "," + " " + " ";
+if(isDateOnly) {
+return dateOnly_str.trim();
+}
+return date_str.trim();
+}
+</script>
+
+
+
+<script type="text/javascript">
+PTC.attributeHelper._initializeCache = function() {};
+PTC.attributeHelper.set("Boolean", {
+   "TRUE": "是",
+   "FALSE": "否",
+   "UNSET": "未定義"
+});
+PTC.attributeHelper.set("InfoPage", {
+   "icon": "netmarkets/images/details.gif",
+   "title": "檢視資訊",
+   "url": "https://pap.moxa.com/Windchill/app/#ptc1/tcomp/infoPage"
+});
+PTC.attributeHelper.set("ActionsMenu", {
+   "url": "https://pap.moxa.com/Windchill/servlet/ActionsMenu",
+   "label": "動作"
+});
+PTC.attributeHelper.set("DateRenderer", formatDate);
+PTC.attributeHelper.set("HCHOverviewHREF", 'https://support.ptc.com/help/windchill/r13.1.1.0/index.html?id=WHCCategories&locale=zh-TW');
+PTC.attributeHelper.set("NewandChanged_Section_Intro", 'https://support.ptc.com/help/windchill/r13.1.1.0/index.html?id=NewandChanged_Section_Intro&locale=zh-TW');
+PTC.attributeHelper.set("createHyperlinks", true);
+
+PTC.properties.setWTProperty("com.ptc.netmarkets.javascript.tableColumnFilteringEnabled", 'false');
+
+var NAVIGATOR_PANEL_ENABLED = "com.ptc.netmarkets.javascript.navigatorPanelEnabled";
+if(PTC.attributeHelper._cache[NAVIGATOR_PANEL_ENABLED] == null || PTC.attributeHelper._cache[NAVIGATOR_PANEL_ENABLED] == undefined)
+    PTC.attributeHelper.set(NAVIGATOR_PANEL_ENABLED, true);
+
+// Flow Server messages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1001', '無法連線至伺服器。');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1002', '請求逾時。');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1003', '已取消請求。');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1004', '無法對回應進行處理。');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1005', '無法擷取資料。');
+
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1001_LEVEL', 'ERROR');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1002_LEVEL', 'ERROR');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1003_LEVEL', 'ERROR');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1004_LEVEL', 'ERROR');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._1005_LEVEL', 'ERROR');
+
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._3001', '遠端記錄無法使用。');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._3002', '無法取得遠端記錄。');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._3003', '無法取得某些屬性值用於遠端記錄。');
+
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._3001_LEVEL', 'ERROR');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._3002_LEVEL', 'ERROR');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB._3003_LEVEL', 'WARN');
+
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB.RESOURCE_LOAD_ERROR', '資源載入錯誤');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB.RESOURCE_LOAD_WARNING', '資源載入警告');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB.RESOURCE_LOAD_SUCCESSFUL', '資源載入成功');
+bundleHandler.set('com.ptc.core.ui.remoteMessagesRB.RESOURCE_LOAD_INPROGRESS', '資源載入進行中');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+bundleHandler.set('com.ptc.core.ui.tableRB.VIEW_SELECTED_OBJECTS_ONLY', '僅檢視所選物件');
+bundleHandler.set('com.ptc.core.ui.tableRB.DEFAULT_TABLE_VIEW_NAME', '使用者檢視 {0}');
+bundleHandler.set('com.ptc.core.ui.tableRB.SEARCH_IN_PROGRESS', '正在搜尋...');
+bundleHandler.set('com.ptc.core.ui.tableRB.CLEAR_SEARCH_IN_TABLE', '清除');
+bundleHandler.set('com.ptc.core.ui.tableRB.SEARCH_IN_TABLE', '在表格中搜尋');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMN_SORT_ASCENDING_TEXT', '遞增排序');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMN_SORT_DESCENDING_TEXT', '遞減排序');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMNS_TEXT', '欄');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMNS_MULTIPLE_LABELS', '檢視所有標籤');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMN_GROUP_BY_TEXT', '依此欄位分組');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMN_SHOW_IN_GROUPS_TEXT', '在群組內顯示');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMN_LOCK_TEXT', '鎖定');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMN_UNLOCK_TEXT', '解除鎖定');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_DISPLAYED_LOAD_COMPLETE_MESSAGE', '共 #{total} 個物件');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_DISPLAYED_MORE_MESSAGE', '已顯示 #{displayed}  個物件，共超過 #{total} 個物件');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_TEXT', '這是 Windchill，web 導向的主要產品資料管理存放庫，可讓所有成員從無數來源存取最新、最正確的資訊。做更多事。了解更多。獲益更多。');
+
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMN_WRAP_TEXT', '換行');
+bundleHandler.set('com.ptc.core.ui.tableRB.TABLE_COLUMN_UNWRAP_TEXT', '不換行');
+
+bundleHandler.set('com.ptc.core.ui.tableRB.NON_EXPORTABLE_COLUMNS', 'selection,checker,nmActions,infoPageAction,formatIcon,openAsscContent,search_thumbnail,FBDiscuss,FBRouted,FBDeliverables,smallThumbnail,descriptionRollover,level,wsobjActions,compare,launchIncorpHangingChange,mailToCreator,backingVersionOid,selectChoicesAction');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bundleHandler.set('com.ptc.core.ui.navigationRB.INFO_PAGE_NEW_TAB', '新建標籤 {0}');
+bundleHandler.set('com.ptc.core.ui.navigationRB.INFO_PAGE_ADD_NEW_TAB', '+');
+bundleHandler.set('com.ptc.core.ui.navigationRB.okDialogButton', '確定');
+bundleHandler.set('com.ptc.core.ui.navigationRB.cancelDialogButton', '取消');
+bundleHandler.set('com.ptc.core.ui.navigationRB.RENAME_TAB_MENU_LABEL', 'null');
+bundleHandler.set('com.ptc.core.ui.navigationRB.RENAME_TAB_PROMPT_TITLE', '重新命名標籤');
+bundleHandler.set('com.ptc.core.ui.navigationRB.RENAME_TAB_PROMPT_TEXT', '名稱');
+bundleHandler.set('com.ptc.core.ui.navigationRB.RENAME_TAB_NAME_EMPTY', '輸入標籤名稱');
+bundleHandler.set('com.ptc.core.ui.navigationRB.RENAME_TAB_CHARS_EXCEEDED', '最大欄位長度為 60 個字元');
+bundleHandler.set('com.ptc.core.ui.navigationRB.RENAME_TAB_DUPLICATE_NAME', '具有此名稱的標籤已經存在');
+bundleHandler.set('com.ptc.core.ui.navigationRB.CLOSE_TAB_CONTEXT_MENU_TITLE', 'null');
+bundleHandler.set('com.ptc.core.ui.navigationRB.LOADING', '正在載入…');
+bundleHandler.set('com.ptc.core.ui.navigationRB.QUICK_LINKS', '快速連結');
+bundleHandler.set('com.ptc.core.ui.navigationRB.RECENT_LIST', '最近存取');
+bundleHandler.set('com.ptc.core.ui.navigationRB.UNABLE_TO_CONNECT', '無法連線至伺服器。');
+bundleHandler.set('com.ptc.core.ui.navigationRB.MY_TAB_MENU', '自訂');
+bundleHandler.set('com.ptc.core.ui.navigationRB.TAB_STATUS_PUBLIC', '公用標籤 - 內容可由網站或組織中的使用者檢視。');
+bundleHandler.set('com.ptc.core.ui.navigationRB.WIN_TITLE_HOME_TAB_HOME', '首頁');
+bundleHandler.set('com.ptc.core.ui.navigationRB.WIN_TITLE_HELP_TAB_HELP', '說明');
+bundleHandler.set('com.ptc.core.ui.navigationRB.NAVIGATION_TITLE', '導覽');
+bundleHandler.set('com.ptc.core.ui.navigationRB.RECENT_LIST', '最近存取');
+bundleHandler.set('com.ptc.core.ui.navigationRB.NAVIGATOR_TITLE', '導覽器');
+bundleHandler.set('com.ptc.core.ui.navigationRB.EXPAND_NAVIGATOR_BAR', '展開');
+bundleHandler.set('com.ptc.core.ui.navigationRB.COLLAPSE_NAVIGATOR_BAR', '摺疊');
+bundleHandler.set('com.ptc.core.ui.navigationRB.WIN_TITLE_HOME_TAB_WINDCHILL_HOME', 'Windchill - 首頁');
+bundleHandler.set('com.ptc.core.ui.navigationRB.MININAVTHUMBPANE', '導覽縮圖');
+bundleHandler.set('com.ptc.core.ui.navigationRB.VISUALIZATION_TITLE', '視覺化');
+bundleHandler.set('com.ptc.core.ui.navigationRB.WINDCHILL_LANGUAGE_CONFIGURATION', 'Windchill 語言組態');
+bundleHandler.set('com.ptc.core.ui.navigationRB.SELECT_LANGUAGE', '搜尋語言');
+bundleHandler.set('com.ptc.core.ui.navigationRB.LANGUAGE_CHOICES', '語言選擇');
+bundleHandler.set('com.ptc.core.ui.navigationRB.MOVE_UP_BUTTON_LABEL', '上移');
+bundleHandler.set('com.ptc.core.ui.navigationRB.MOVE_DOWN_BUTTON_LABEL', '下移');
+bundleHandler.set('com.ptc.core.ui.navigationRB.MOVE_TO_TOP_BUTTON_LABEL', '移至最上方');
+bundleHandler.set('com.ptc.core.ui.navigationRB.REMOVE_BUTTON_LABEL', '移除');
+bundleHandler.set('com.ptc.core.ui.navigationRB.ADD_BUTTON_LABEL', '新增');
+bundleHandler.set('com.ptc.core.ui.navigationRB.OK_BUTTON_LABEL', '確定');
+bundleHandler.set('com.ptc.core.ui.navigationRB.CANCEL_BUTTON_LABEL', '取消');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.DISPLAY_OPTION_TOOLTIP', '表格顯示選項');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.CLEAR_ALL_SELECTION_MESSAGE', '清除全部頁面上的選取項');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.STOP_LOADING', '停止載入');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SELECT_ALL_CURRENT_PAGE', '選取本頁上的全部列');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.FIT_SEARCH_NEXT_TOOLTIP', '下一個相符項目');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.FIT_SEARCH_PREV_TOOLTIP', '上一個相符項目');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SELECT_ALL', '選取全部列');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.FIT_FIND_IN_PROMPT', '在樹中尋找');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.NEXT_PAGE', '下一頁');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.PREVIOUS_PAGE', '上一頁');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.MORE_RESULTS_TOOLTIP', '更多結果');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.PREVIOUS_RESULT_TOOLTIP', '之前的結果');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.PANEL_RESIZER_TOOLTIP', '調整表格大小');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.COLLAPSE_TABLE', '摺疊表格');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.EXPAND_TABLE', '展開表格');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SAVE_VIEW', '儲存檢視');
+
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.COLUMN_FILTER', '欄篩選器');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.CLEAR_ALL_FILTERS', '清除全部篩選器');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.BLANK', '空白');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.BEFORE', '早於');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.AFTER', '晚於');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.ON', '於');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.FILTERING', '正在篩選...');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.CONFIRM_EXTERNAL_SITE', '您正在導覽至外部網站。按一下「確定」以繼續。');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bundleHandler.set('com.ptc.windchill.option.optionResource.GROUP', '群組');
+bundleHandler.set('com.ptc.windchill.option.optionResource.SELECTGROUP', '選取群組...');
+bundleHandler.set('com.ptc.windchill.option.optionResource.CLEARALL', '清除全部值');
+bundleHandler.set('com.ptc.windchill.option.optionResource.TITLE_OVERRIDEWINDOW', '重新定義選項集版本修訂');
+bundleHandler.set('com.ptc.windchill.option.optionResource.OK_BUTTON_LABEL', '確定');
+bundleHandler.set('com.ptc.windchill.option.optionResource.SELECTVERSION', '選取版本修訂...');
+bundleHandler.set('com.ptc.windchill.option.optionResource.ERRNOVERSIONSELECTED', '選取版本修訂。');
+bundleHandler.set('com.ptc.windchill.option.optionResource.CANCEL_BUTTON_LABEL', '取消');
+bundleHandler.set('com.ptc.windchill.option.optionResource.CONFIRM_TITLE', '確認');
+bundleHandler.set('com.ptc.windchill.option.optionResource.CONFIRM_MSG', '您是否確定要清除所有選擇選取項?');
+bundleHandler.set('com.ptc.windchill.option.optionResource.GROUP', '群組');
+bundleHandler.set('com.ptc.windchill.option.optionResource.LABELALL', '全部');
+bundleHandler.set('com.ptc.windchill.option.optionResource.SUMMARY_TITLE', '摘要');
+bundleHandler.set('com.ptc.windchill.option.optionResource.TEMPLATE_DROPDOWN_LABEL', '選項集:');
+bundleHandler.set('com.ptc.windchill.option.optionResource.VERSION_DROPDOWN_LABEL', '版本修訂:');
+
+bundleHandler.set('Ext_PagingToolbar_strings', {
+   "firstText": "第一頁",
+   "lastText": "最後一頁",
+   "nextText": "下一頁",
+   "refreshText": "重新整理",
+   "beforePageText": "第 ",
+   "prevText": "上一頁",
+   "afterPageText": " 頁，共 {0} 頁"
+});
+
+
+
+
+
+
+bundleHandler.set('com.ptc.core.ui.componentRB.ACTIONS', '動作');
+bundleHandler.set('com.ptc.core.ui.componentRB.SITE_ADMIN_PUBLIC_HOMEPAGE_TAB_INLINE_HELP', '對公開標籤所做的變更會帶到您網站全部使用者的主頁，除了那些已修改其主頁的使用者。');
+bundleHandler.set('com.ptc.core.ui.componentRB.MESSAGE_DIALOG_TITLE', '訊息');
+
+
+
+
+
+
+
+
+
+bundleHandler.set('com.ptc.windchill.enterprise.search.client.searchClientResource.VIEW_SAVED_SEARCH_LABEL', '檢視搜尋記錄和已存搜尋');
+bundleHandler.set('com.ptc.windchill.enterprise.search.client.searchClientResource.ADVANCED_SEARCH_LABEL', '進階搜尋');
+bundleHandler.set('com.ptc.windchill.enterprise.search.client.searchClientResource.SEARCH_LABEL', '搜尋');
+bundleHandler.set('com.ptc.windchill.enterprise.search.client.searchClientResource.ALL_TYPE_LABEL', '全部物件類型');
+bundleHandler.set('com.ptc.windchill.enterprise.search.client.searchClientResource.CHOOSE_TYPE_LABEL', '選擇類型');
+bundleHandler.set('com.ptc.windchill.enterprise.search.client.searchClientResource.EDIT_CRITERIA_LINK', '編輯條件');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_THUMBNAIL_NAVIGATOR', '縮圖導覽器');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_HOME', '首頁');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_BACK', '上一個縮圖');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_FORWARD', '下一個縮圖');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_FORWARD_ALL', '前進到最後');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_COPY_TO_CLIPBOARD', '複製到剪貼簿');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_VIEW_INFORMATION', '檢視資訊');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_OPEN_IN_VIEWER', '在檢視器內開啟預設表示');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_DISABLE_ROLLOVER', '縮圖目前未鎖定。按一下以鎖定縮圖。');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_ENABLE_ROLLOVER', '縮圖目前已被鎖定。按一下以解除鎖定縮圖。');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_ROLLOVER_DISABLED', '鎖定的縮圖');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_RETURN_TO', '返回 {0}');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_WHERE_USED', '使用處');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_USES', '使用');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_RELATED', '相關');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_DISPLAY_CAD', '從零件切換到 CAD 文件');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_DISPLAY_PART', '從 CAD 文件切換到零件');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_NO_VIEWER_DATA', '沒有可用的檢視器資料');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_NUMBER', '編號:');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_NAME', '名稱:');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_VERSION', '版本:');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_STATE', '狀態:');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_CONTEXT', '前後關聯:');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_SECURED_INFORMATION', '(安全資訊)');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_REFRESH', '重新整理');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_HELP', '說明');
+
+
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_DESCRIPTION', '描述:');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_ASSIGNEE', '工作負責人:');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_HARD', '干涉');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_SOFT', '間隙');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_TOUCH', '接觸');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_REPORT', '干涉偵測報告');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_CREATED_CURRENT', '建立時間:');
+
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_OPEN_STRUCTURE_IN_PV', '在 Creo View 中開啟結構');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_OPEN_DOCUMENT_IN_PV', '在 Creo View 中開啟文件內容');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_PUBLISH', '建立預設表示');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_NOT_PUBLISHABLE', '不可發行');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_ADDTOPV_VIEW', '在 Creo View 中開啟');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_ZOOM_ALL', '全部縮放');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_SET_SPIN_CENTER', '設定旋轉中心');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_COPY_IMAGE', '複製圖像');
+bundleHandler.set('com.ptc.wvs.server.ui.uiResource.TN_OPEN_IN_PRODUCTVIEW', '在 Creo View 內開啟預設表示');
+
+
+
+
+
+bundleHandler.set('com.ptc.windchill.enterprise.change2.change2ClientResource"SUBMIT_NOW_BUTTON', '現在提交');
+bundleHandler.set('com.ptc.windchill.enterprise.change2.change2ClientResource"SUBMIT_LATER_BUTTON', '稍後提交');
+bundleHandler.set('com.ptc.windchill.enterprise.change2.change2ClientResource"SUBMIT_NOW_MESSAGE', '<br><b>確認</b>: 現在要提交變更物件嗎?<br><br>按一下「現在提交」可立即提交變更物件。<br>按一下「稍候提交」則可於稍後再提交物件。');
+
+
+PTC.attributeHelper.set("WVSPopup.baseURL", 'https://pap.moxa.com/Windchill/');
+PTC.attributeHelper.set("WVSPopup.options", '-3618616 -1;0.8925389352890299 0.4472619053005489 -0.05771513718295648 -0.15737869562426265 0.4288489645953114 0.8895619774524623 0.42261826174069944 -0.7848855672213958 0.4531538935183251;');
+PTC.attributeHelper.set("WVSPopup.helpUrl", 'https://support.ptc.com/help/windchill/r13.1.1.0/index.html?id=ObjectOviewMiniInfoPageRef&locale=zh-TW');
+
+PTC.attributeHelper.set("formBased", false);
+PTC.attributeHelper.set("PTC.navigation.FORM_BASED_AUTH_RESPONSE_FLAG",'\x3Cform\x20method\x3D\x22POST\x22\x20action\x3D\x22j_security_check\x22\x20id\x3D\x22login\x22\x3E');
+
+PTC.attributeHelper.set("PTC.learningConnector.WINDCHILL_VERSION", '13.1');
+PTC.attributeHelper.set("PTC.learningConnector.WINDCHILL_LOCALE", "zh_TW");
+
+PTC.attributeHelper.set("PTC.WINDCHILL_LOCALE_TAG", 'zh-TW');
+PTC.attributeHelper.set("PTC.NUMBER_FORMAT.GROUPING_SEPARATOR_ENABLED", true);
+
+PTC.attributeHelper.initializeVariables = function() {
+    // Use 'this' to change variables on the current window
+    // When the API is called for jstables/wizards, 'this' will be the iframe/popup window
+    this.Ext.grid.CheckboxSelectionModel.prototype.header = "<div ext:qtip=\""+bundleHandler.get('com.ptc.netmarkets.util.utilResource.SELECT_ALL')+"\" class=\"x-grid3-hd-checker\">&#160;</div>";
+ 
+    // set the default Ext "Loading" text to be our localized version of this string
+    this.Ext.Updater.defaults.indicatorText = '<div class="loading-indicator">' + bundleHandler.get("com.ptc.core.ui.navigationRB.LOADING") + '</div>';
+};
+PTC.attributeHelper.initializeVariables.call(window);
+
+
+
+(function() 
+{
+    PTC.folderBrowser.tableIds.table = {"ORGSITE":"folderbrowser_OrgSite","PJL":"folderbrowser_PJL","QMS":"folderbrowser_QMS","PDM":"folderbrowser_PDM","AGREEMENT":"netmarkets.agreements.agreements_list","UNKNOWN":"folderbrowser_table","PROGRAM":"folderbrowser_Program"};
+    PTC.folderBrowser.tableIds.tree = 'folderbrowser_tree';
+    Ext.util.Observable.observeClass (Ext.grid.GridPanel);
+
+    // Set functions on Folder Browser Tree and Table as they are being rendered
+    Ext.grid.GridPanel.on ('beforerender', function (table)
+    {
+        var tableId = table.id;
+
+        // If Folder Browser tree, set functions ...
+        if (tableId === PTC.folderBrowser.tableIds.tree)
+        {
+            PTC.folderBrowser.callbacks.beforeRenderTree (table);
+        }
+
+        // If Folder Browser table,  set functions ...
+        for (var key in PTC.folderBrowser.tableIds.table) 
+        {
+            var fbTableId = PTC.folderBrowser.tableIds.table [key];
+            if (tableId === fbTableId) 
+            {
+                PTC.folderBrowser.callbacks.beforeRenderTable (table);
+            }
+        }
+    });
+})();
+
+
+
+PTC.attributeHelper.set ("partClasses", ["wt.part.WTPart","com.ptc.windchill.suma.part.SupplierPart","com.ptc.windchill.suma.part.ManufacturerPart","com.ptc.windchill.suma.part.VendorPart"]);
+
+
+
+PTC.search.isSearchValidationEnabled=true
+
+//This variable is to read the wt.query.singleWildCard property value from wt.property file
+PTC.search.singleWildCard = '?'
+
+//This variable control rendering search UI based on user profile
+PTC.search.renderSearch =true
+
+//This variable control rendering classification search UI based on user profile
+PTC.search.renderClassification =true
+
+PTC.search.enableEmptySearch=false
+PTC.search.showXmlTagSearchDisableMessage=false
+PTC.search.advSearchHelpUrl = 'https://support.ptc.com/help/windchill/r13.1.1.0/index.html?id=LclSrchAdvancedSearchPerform&locale=zh-TW';
+PTC.search.searchHistoryHelpUrl = 'https://support.ptc.com/help/windchill/r13.1.1.0/index.html?id=LclSrchHistorySavedSearchAbout&locale=zh-TW';
+PTC.search.clfExplorerHelpUrl= 'https://support.ptc.com/help/windchill/r13.1.1.0/index.html?id=WCClassSearchExplorer&locale=zh-TW';
+
+//The following code is just to render the help icon. By default Search History page gets loaded so configuring help for it.
+var helpIconConfig={"url":"https://support.ptc.com/help/windchill/r13.1.1.0/index.html?id=LclSrchHistorySavedSearchAbout&locale=zh-TW"};
+PTC.navigator.configureHelpIcon('object_search_navigation',helpIconConfig);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SERVER_ERROR', '錯誤: ');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SERVER_WARNING', '警告: ');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.MAX_DATASOURCE_LIMIT_REACHED_MESSAGE_TABLE_LEVEL', '警告: 已達到表格大小限制。');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.MAX_DATASOURCE_LIMIT_REACHED_MESSAGE', '警告: 已達到表格大小限制。');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.QUERY_LIMIT_REACHED', '警告: 以達到查詢限制');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.PARTIAL_RESULTS_TIMEOUT', '樹資料不完整。擷取一或多個節點的子項時發生逾時錯誤。');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.LOADING_CANCELLED_BY_USER', '警告: 表格載入已停止');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SORTING_ON_INCOMPLETE_DATA_WARNING_MESSAGE', '警告: 只能為載入的物件排序');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SORTING_ON_INCOMPLETE_DATA_DETAILED_MESSAGE', '若您並未找到想要的物件，請允許表格完成載入並重新排序。');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.STOP_LOADING', '停止載入');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.MAX_DATASOURCE_LIMIT_REACHED_MESSAGE_2', '若您的物件不在表格內，您可以選擇縮小搜尋條件，使用檢視下拉選單以套用篩選器或按一下「下一頁」。');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SORTING_WHEN_MAX_LIMIT_REACHED_WARNING', '警告: 僅已排序目前顯示在表格內的物件。');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.SORTING_WHEN_MAX_LIMIT_REACHED_DETAILED_MESSAGE', '若您未找到所要尋找的物件，請縮小搜尋條件，利用表格檢視套用篩選器，或按一下「下一個」然後再度排序。.');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.MAX_DATASOURCE_LIMIT_REACHED_MESSAGE_TREE_LEVEL', '警告: 已達到樹大小限制');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.MAX_DATASOURCE_LIMIT_REACHED_MESSAGE_TREE', '無法進一步展開樹。請摺疊不需要的節點或使用「在樹中尋找」，找到您的物件。');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.QUERY_LIMIT_REACHED_DETAILED_MESSAGE', '如果看不到您的物件，請在表格內搜尋，使用「檢視」下拉選單套用篩選器，或按一下「下一個」');
+bundleHandler.set('com.ptc.netmarkets.util.utilResource.TREE_LOADING_CANCELLED_BY_USER', '警告: 樹載入已停止');
+
+</script>
+
+
+    <div id="header_gradient"></div>
+    <div id="background_image"><img id="bodyProgress" class="" src="netmarkets/images/sp.gif" width="32" height="32"></div>
+    <noscript><div style="padding: 10px 10px; font-size: 1.2em">無法存取 JavaScript</div></noscript>
+
+    
+    <script type="text/javascript">
+        PTC.navigation.override();
+        PTC.navigation.loadShell();
+        
+    </script>
+
+<script type="text/javascript">
+setTimeout('PTC.console.setConsoleInterval("https://pap.moxa.com/Windchill/app/#ptc1/object/checkConsole")',3000);
+    function eventManagerConsole(event) {
+        var newWindow=void(parent.wfWindowOpen('https://pap.moxa.com/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/URLTemplateAction?u8&action=EventConsole', 'console', 'resizable=yes,scrollbars=yes,menubar=no,toolbar=no,location=no,status=no,width=900,height=600'));
+        Event.stop(event);
+        return false;
+    }
+</script>
+<script language="JavaScript">
+if (!('wfalert' in window)) {PTC.navigation.loadScript("/templates/cadx/common/trlUtils.js");
+}</script>
+<script language="JavaScript">
+if (!('wvsimt' in window)) {PTC.navigation.loadScript("/wtcore/jsp/wvs/thumbviewer_wvs.js");
+PTC.navigation.loadScript("/wtcore/jsp/wvs/visminithumb.js");
+}</script>
+<script language="Javascript">
+function createCDialogWindow(dialogURL, dialogName, w, h, statusBar, scrollBar) {
+createCDialogWindow(dialogURL, dialogName, w, h, statusBar, scrollBar, null);
+}
+function createCDialogWindow(dialogURL, dialogName, w, h, statusBar, scrollBar, theForm) {
+if( typeof(_use_wvs_cookie) != "undefined" ) {
+var cookie_value = document.cookie;
+if( cookie_value != null ) {
+var loc = cookie_value.indexOf("wvs_ContainerOid=");
+if( loc >= 0 ) {
+var subp = cookie_value.substring(loc+4);
+loc = subp.indexOf(";");
+if( loc >= 0 ) subp = subp.substring(0, loc);
+dialogURL += "&" + subp;
+}
+}
+}
+else {
+var vm_url = "" + top.document.location;
+if( vm_url != null ) {
+var loc = vm_url.indexOf("ContainerOid=");
+if( loc < 0 ) {
+loc = vm_url.indexOf("/listFiles.jsp?oid=");
+if( loc >= 0 ) {
+vm_url = "ContainerOid=" + vm_url.substring(loc+19);
+loc = 0;
+}
+}
+if( loc >= 0 ) {
+var subp = vm_url.substring(loc);
+loc = subp.indexOf("&");
+if( loc >= 0 ) subp = subp.substring(0, loc);
+if( dialogURL.indexOf("/blank.jsp?")>0 ) {
+loc = dialogURL.indexOf("fname=");
+if( loc >= 0 ) {
+var fname = dialogURL.substring(loc+6);
+loc = fname.indexOf("&");
+if( loc >= 0 ) fname = fname.substring(0, loc);
+try {
+if( document.forms[fname].action.indexOf("ContainerOid=")<0 ) {
+document.forms[fname].action += "&" + subp;
+}
+} catch(e) {}
+}
+}
+dialogURL += "&" + subp;
+}
+}
+}
+if(theForm != null) {
+tempAction = theForm.action;
+tempTarget = theForm.target;
+ele = document.createElement("input");
+ele.type = 'hidden';
+ele.name= 'ActionSource';
+ele.value='PJLseedObjects';
+theForm.appendChild(ele);
+theForm.action = dialogURL;
+theForm.target = dialogName;
+}
+var mform = getMainForm();
+if(!mform.windowNameForCookie){
+ mform.windowNameForCookie ={};
+}
+mform.windowNameForCookie.value = 'edrview_window';
+var sizeDataFromCookie = getWindowSizeFromCookie('edrview_window');
+ if (sizeDataFromCookie != null){
+w = sizeDataFromCookie.width;
+h = sizeDataFromCookie.height;
+ }
+var newwin = createDialogWindow(dialogURL, dialogName, w, h, statusBar, scrollBar);
+if(theForm != null) {
+theForm.submit();
+theForm.action = tempAction;
+theForm.target = tempTarget;
+theForm.removeChild(ele);
+}
+}
+function createDialogWindow(dialogURL, dialogName, w, h, statusBar, scrollBar) {
+if( statusBar == null ) statusBar = 0;
+if( scrollBar == null ) scrollBar = 1;
+var opts = "toolbar=0,location=0,directory=0,status=" + statusBar + ",menubar=0,scrollbars="+scrollBar+",resizable=1,width=" + w + ",height=" + h;
+createDialogWindowOptions(dialogURL, dialogName, opts);
+}
+
+function createDialogWindowOptions(dialogURL, dialogName, opts) {
+if (PTC.wvs.forceuseplugin != null) dialogURL = dialogURL+"&forceuseplugin="+PTC.wvs.forceuseplugin;
+if ( opts == "" ) {
+if (navigator.userAgent.indexOf("Mozilla/4.") >= 0 && navigator.userAgent.indexOf("MSIE") == -1) {
+opts = "toolbar=1,location=1,directory=1,status=1,menubar=1,scrollbars=1,resizable=1";
+}
+}
+if( dialogName.indexOf("VisNav") == 0 ) opts = opts + ",top=0,left=0";
+if( typeof(checkaddtopv) == "function" && checkaddtopv(dialogURL, dialogName, opts) ) return;
+var newwin = wfWindowOpen(dialogURL, dialogName, opts);
+if( typeof(setPVLiteWin) == "function" ) setPVLiteWin(newwin, dialogName);
+if( newwin != null ) newwin.focus();
+return newwin;
+}
+function closeDialogWindow() { 
+wfWindowClose();
+}
+function evalJspResult(aEvent,aURL) {
+var mOid = null; var mContainerOid = null; var mRowOid = null; var mRowContainerOid = null;
+var mWsName = null;
+mOid = extractParamValue(decodeURIComponent(window.location.href),"oid");
+if ((mOid == null) || (mOid.length < 1)) {
+mOid = extractParamValue(decodeURIComponent(window.location.href),"objref");
+}
+mWsName = extractParamValue(decodeURIComponent(window.location.href),"wsName");
+mContainerOid = extractParamValue(decodeURIComponent(window.location.href),"ContainerOid");
+var mEvent = (aEvent != null) ? aEvent : event;
+var mTarget = null;
+if (mEvent.currentTarget) {
+mTarget = mEvent.currentTarget;
+} else {
+mTarget = mEvent.srcElement;
+}
+if (mTarget) {
+var mTRnode = getParentNodeByTag(mTarget,"TR");
+if (mTRnode && (mTRnode.nodeName == "TR")) {
+var mAtt = mTRnode.getAttribute("onclick");
+if (mAtt) {
+var mOnclick = mAtt.toString();
+var mItems = mOnclick.split(",");
+for (var i = 0; (i < mItems.length) && ((mRowOid == null) || (mRowContainerOid == null)); i++) {
+var mItem = trimString(mItems[i]);
+if (mItem == "'oid'") {
+i++;
+var tmp = trimString(mItems[i]);
+mRowOid = tmp.substring(1,tmp.length-1);
+} else if (mItem == "'ContainerOid'") {
+i++;
+var tmp = trimString(mItems[i]);
+mRowContainerOid = tmp.substring(1,tmp.length-1);
+}
+}
+}
+}
+}
+if ((mRowContainerOid == null || !(mRowContainerOid.length > 0)) && (mContainerOid == null || !(mContainerOid.length > 0)) && mOid!=null && mOid.indexOf("Project2")!= -1) {
+mContainerOid = mOid;
+}
+var mDelim = "?";
+if (aURL.indexOf(mDelim) >= 0) {
+mDelim = "&";
+}
+if ((mOid != null) && (mOid.length > 0)) {
+aURL += mDelim + "oid=" + mOid;
+mDelim = "&";
+}
+if ((mWsName != null) && (mWsName.length > 0)) {
+aURL += mDelim + "wsName=" + mWsName;
+mDelim = "&";
+}
+if ((mContainerOid != null) && (mContainerOid.length > 0)) {
+aURL += mDelim + "ContainerOid=" + mContainerOid;
+mDelim = "&";
+}
+if ((mRowOid != null) && (mRowOid.length > 0) && !"undefined".equalsIgnoreCase(rowOid)) {
+aURL += mDelim + "rowOid=" + mRowOid;
+mDelim = "&";
+}
+else if ( (mRowOid == null) && PTC.menu.contextOid ) {
+mRowOid=PTC.menu.contextOid;
+aURL += mDelim + "rowOid=" + mRowOid;
+mDelim = "&";
+}
+if ((mRowContainerOid != null) && (mRowContainerOid.length > 0)) {
+aURL += mDelim + "rowContainerOid=" + mRowContainerOid;
+mDelim = "&";
+}
+if (getMainForm()) {
+if(getMainForm().changeItemRef) {
+aURL += mDelim + "changeItem=" + getMainForm().changeItemRef.value;
+mDelim = "&";
+}
+if(getMainForm().changeableRef) {
+aURL += mDelim + "changeable=" + getMainForm().changeableRef.value;
+mDelim = "&";
+}
+}
+var mCombo = document.getElementById('repsAndMarkups_filterComboBox');
+if (mCombo) {
+aURL += mDelim + "filter=" + mCombo.value;
+}
+if (requestHandler) {
+var mOpts = {asynchronous: false};
+var mReq = requestHandler.doRequest(aURL,mOpts);
+if (mReq && mReq.responseText) {
+var mResp = trimString(mReq.responseText);
+if (mResp.length > 0) {
+eval(mResp);
+}
+}
+}
+return false;
+}
+function copyToCommonClipboard(copyToClipboardURL)
+{
+var ContainerOid = "";
+if (typeof(_use_wvs_cookie) != "undefined") {
+var documentCookie = document.cookie;
+if (documentCookie != null) {
+var start = documentCookie.indexOf("wvs_ContainerOid=");
+if (start >= 0) {
+start += 4;
+var end = documentCookie.indexOf(";",start + 1);
+ContainerOid = (end > start) ? documentCookie.substring(start,end) : cookie_value.substring(start);
+}
+}
+}
+var url = copyToClipboardURL;
+if (ContainerOid.length > 0) {
+url += "&" + ContainerOid;
+}
+var xmlhttp = newHttp();
+xmlhttp.open("GET", url, false);
+xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+xmlhttp.send(null);
+if (xmlhttp.responseText && xmlhttp.responseText.length > 0) {
+var msg = trimString(xmlhttp.responseText);
+if (msg && msg.length > 0) {
+wfalert(msg);
+}
+}
+}
+function trimString(str) {
+str = this != window? this : str;
+return str.replace(/^\s+/g, '').replace(/\s+$/g, '');
+}
+</script>
+
+<script type="text/javascript" src="templates/htmlcomp/cs/csusage.js"></script>
+
+
+<iframe frameborder="0" class="ext-shim" src="about:blank" id="ext-gen324" style="display: none; visibility: visible; z-index: 20000; left: 291px; top: 186px; width: 109px; height: 20px;"></iframe><div class="x-shadow" id="ext-gen325" style="z-index: 20001; left: 291px; top: 186px; width: 109px; height: 20px; display: none;"><div class="xst"><div class="xstl"></div><div class="xstc" style="width: 97px;"></div><div class="xstr"></div></div><div class="xsc" style="height: 8px;"><div class="xsml"></div><div class="xsmc" style="width: 97px;"></div><div class="xsmr"></div></div><div class="xsb"><div class="xsbl"></div><div class="xsbc" style="width: 97px;"></div><div class="xsbr"></div></div></div><div id="ext-comp-1002" class="x-tip" style="position: absolute; z-index: 20002; visibility: hidden; width: 109px; left: 287px; top: 183px; display: none;"><div class="x-tip-tl"><div class="x-tip-tr"><div class="x-tip-tc"><div class="x-tip-header x-unselectable" id="ext-gen6"><span class="x-tip-header-text" id="ext-gen323"></span></div></div></div></div><div class="x-tip-bwrap" id="ext-gen7"><div class="x-tip-ml"><div class="x-tip-mr"><div class="x-tip-mc" id="ext-gen10"><div class="x-tip-body" id="ext-gen8" style="height: auto; width: 97px;">依據「名稱」排序</div></div></div></div><div class="x-tip-bl x-panel-nofooter" id="ext-gen9"><div class="x-tip-br"><div class="x-tip-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="ext-gen11" style="z-index: 20003; visibility: hidden;"></div></div><span id="preload1"></span><div class="x-resizable-proxy x-unselectable" id="navigatorPanel-rzproxy"></div><div id="ext-gen101" class=" x-unselectable x-splitbar-proxy x-splitbar-proxy-h"></div><div id="ext-gen111" class=" x-unselectable x-splitbar-proxy x-splitbar-proxy-v"></div><div id="ext-comp-1004" class="x-tip wctip" style="position: absolute; z-index: 20002; visibility: hidden; width: 40px; left: 20px; top: 297px; display: none;"><div class="x-tip-tl"><div class="x-tip-tr"><div class="x-tip-tc"></div></div></div><div class="x-tip-bwrap" id="ext-gen117"><div class="x-tip-ml"><div class="x-tip-mr"><div class="x-tip-mc" id="ext-gen120"><div class="x-tip-body" id="ext-gen118" style="height: auto; width: 28px;">展開</div></div></div></div><div class="x-tip-bl x-panel-nofooter" id="ext-gen119"><div class="x-tip-br"><div class="x-tip-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="ext-gen121" style="z-index: 20003; visibility: hidden;"></div></div><div class="x-dock-highlight" id="ext-gen141" style="visibility: hidden;"></div><div id="ext-gen326" style="position: absolute; left: -1000px; top: -1000px; visibility: hidden; font-size: 12px; font-style: normal; font-weight: 400; font-family: &quot;Segoe UI&quot;, helvetica, arial, sans-serif, tahoma; line-height: 14px; text-transform: none; letter-spacing: normal; width: auto;"></div><div class="x-layout-collapsed x-layout-collapsed-west" id="navigatorPanel-xcollapsed" style="display: block; left: 0px; top: 40px; width: 30px; height: 683px; visibility: visible;"><div class="x-tool x-tool-expand-west" id="ext-gen115">&nbsp;</div><div class="x-tool x-tool-pin" id="ext-gen116">&nbsp;</div><div id="navtitle" class="rotate-text">導覽器</div><div id="navlinks" class="rotate-text"><a href="#" id="object_search_navigation_nav" onclick="PTC.navigator.selectNavigatorTab('object_search_navigation', event);return false;" onmouseover="PTC.navigator.setHoverNavigatorTab('搜尋')" accesskey="S">搜尋(<u class="mnemonic">S</u>)</a>&nbsp;|&nbsp;<a href="#" id="object_main_navigation_nav" onclick="PTC.navigator.selectNavigatorTab('object_main_navigation', event);return false;" onmouseover="PTC.navigator.setHoverNavigatorTab('瀏覽')" accesskey="W">瀏覽(<u class="mnemonic">w</u>)</a></div></div><div id="ext-gen393" class="x-dd-drag-proxy x-dd-drop-nodrop x-grid3-col-dd" style="position: absolute; z-index: 15000; visibility: hidden; left: -10000px; top: -10000px;"><div class="x-dd-drop-icon"></div><div class="x-dd-drag-ghost" id="ext-gen394"></div></div><div class="col-move-top" id="ext-gen395">&nbsp;</div><div class="col-move-bottom" id="ext-gen396">&nbsp;</div><div class="x-layer x-combo-list  x-resizable-pinned" id="ext-gen442" style="position: absolute; z-index: 12005; visibility: hidden; left: -10000px; top: -10000px; width: 220px; height: 0px; font-size: 12px;"><div class="x-combo-list-hd" id="ext-gen443">- 擇取一個檢視 -</div><div class="x-combo-list-inner" id="ext-gen444" style="width: 220px; margin-bottom: 8px;"><div ext:qtip="CEOL 專案進度查詢" class="x-combo-list-item">CEOL 專案進度查詢</div><div ext:qtip="with NO." class="x-combo-list-item">with NO.</div><div ext:qtip="使用中專案" class="x-combo-list-item">使用中專案</div><div ext:qtip="依狀態檢視所有專案" class="x-combo-list-item">依狀態檢視所有專案</div><div ext:qtip="傳統專案 " class="x-combo-list-item">傳統專案 </div><div ext:qtip="已完成的專案" class="x-combo-list-item">已完成的專案</div><div ext:qtip="我擁有的專案" class="x-combo-list-item">我擁有的專案</div><div ext:qtip="我的最愛" class="x-combo-list-item">我的最愛</div><div ext:qtip="我的組織的專案" class="x-combo-list-item">我的組織的專案</div><div ext:qtip="---------------------" class="x-combo-list-item">---------------------</div><div ext:qtip="另存為檢視…" class="x-combo-list-item">另存為檢視…</div><div ext:qtip="自訂..." class="x-combo-list-item">自訂...</div></div><div class="x-resizable-handle x-resizable-handle-southeast x-unselectable" id="ext-gen445"></div></div><div class="x-resizable-proxy x-unselectable" id="ext-gen442-rzproxy"></div><div id="breadcrumbTooltipId" class=" x-tip" style="position: absolute; z-index: 20002; visibility: hidden; width: 40px; left: 0px; top: 0px; display: none;"><div class="x-tip-tl"><div class="x-tip-tr"><div class="x-tip-tc"></div></div></div><div class="x-tip-bwrap" id="ext-gen446"><div class="x-tip-ml"><div class="x-tip-mr"><div class="x-tip-mc" id="ext-gen449"><div class="x-tip-body" id="ext-gen447" style="height: auto; width: 28px;"></div></div></div></div><div class="x-tip-bl x-panel-nofooter" id="ext-gen448"><div class="x-tip-br"><div class="x-tip-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="ext-gen450" style="z-index: 20003; visibility: hidden;"></div></div><div id="ext-gen456" style="position: absolute; left: -1000px; top: -1000px; visibility: hidden; font-size: 12px; font-style: normal; font-weight: 400; font-family: &quot;Segoe UI&quot;, helvetica, arial, sans-serif, tahoma; line-height: normal; text-transform: none; letter-spacing: normal; width: auto;"></div><div id="ext-gen457" style="position: absolute; left: -1000px; top: -1000px; visibility: hidden; font-size: 12px; font-style: normal; font-weight: 400; font-family: &quot;Segoe UI&quot;, helvetica, arial, sans-serif, tahoma; line-height: 14px; text-transform: none; letter-spacing: normal; width: auto;"></div><div id="ext-gen458" style="position: absolute; left: -1000px; top: -1000px; visibility: hidden; font-size: 12px; font-style: normal; font-weight: 400; font-family: &quot;Segoe UI&quot;, helvetica, arial, sans-serif, tahoma; line-height: 14px; text-transform: none; letter-spacing: normal; width: auto;"></div><div id="ext-gen459" style="position: absolute; left: -1000px; top: -1000px; visibility: hidden; font-size: 12px; font-style: normal; font-weight: 400; font-family: &quot;Segoe UI&quot;, helvetica, arial, sans-serif, tahoma; line-height: 14px; text-transform: none; letter-spacing: normal; width: auto;"></div><div id="ext-gen460" style="position: absolute; left: -1000px; top: -1000px; visibility: hidden; font-size: 12px; font-style: normal; font-weight: 400; font-family: &quot;Segoe UI&quot;, helvetica, arial, sans-serif, tahoma; line-height: 14px; text-transform: none; letter-spacing: normal; width: auto;"></div></body></html>

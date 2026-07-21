@@ -1,55 +1,180 @@
 """
 pdm_reader.py
-
-負責：
-  1. 使用管理員即時提供的帳密，透過 Playwright 模擬登入 PDM(Windchill)
-  2. 依專案號碼搜尋 -> 取得專案 oid -> 進入「小組」頁面
-  3. 解析角色/成員表格，回傳 {角色代碼: 成員帳號} dict 供 fallback_resolver 使用
-
-重要提醒：
-  本檔案的登入/搜尋 CSS selector 是依據使用者提供的頁面截圖與網址結構推導，
-  Windchill 是舊式 Java/GWT 應用，實際 DOM 結構務必在正式環境用瀏覽器
-  開發者工具(F12)核對後調整，標記 TODO 的地方尤其需要在本機環境驗證。
-
-  parse_team_table() 的表格解析邏輯已用截圖真實文字內容做過模擬驗證
-  （見 tests/test_pdm_reader.py），可信度較高；登入與搜尋流程則尚未
-  實測，需要你在本機用真實帳密跑過一次才能確認 selector 是否正確。
 """
 
 from __future__ import annotations
 
 import re
+import time
 from dataclasses import dataclass
-from playwright.sync_api import sync_playwright, Page, TimeoutError as PlaywrightTimeout
+from playwright.sync_api import sync_playwright, Page, Frame, TimeoutError as PlaywrightTimeout
 
 PDM_BASE_URL = "https://pap.moxa.com/Windchill"
 LOGIN_URL = f"{PDM_BASE_URL}/app/"
 
 DUMMY_PATTERN = re.compile(r"\(Dummy\)", re.IGNORECASE)
-# 匹配 'EddieYC_Chen(陳裕佳)' 開頭的帳號部分，帳號格式為 normalize_name() 的輸出格式
 NAME_PATTERN = re.compile(r"^([A-Za-z0-9]+_[A-Za-z0-9]+)")
+
+PROJECT2_OID_PATTERN = re.compile(r"Project2(?:%3A|:)(\d+)")
+
+
+def _extract_project_oid(html: str, project_number: str) -> str | None:
+    pattern = re.compile(
+        r'href="[^"]*oid=OR%3Awt\.projmgmt\.admin\.Project2%3A(\d+)[^"]*"[^>]*>([^<]{0,10}'
+        + re.escape(project_number) + r'[^<]*)<'
+    )
+    m = pattern.search(html)
+    if m:
+        return m.group(1)
+
+    idx = html.find(project_number)
+    while idx != -1:
+        nearby = html[max(0, idx - 800):idx + 800]
+        oid_m = PROJECT2_OID_PATTERN.search(nearby)
+        if oid_m:
+            return oid_m.group(1)
+        idx = html.find(project_number, idx + 1)
+    return None
 
 
 class PDMReaderError(Exception):
     pass
 
 
+PDM_READER_VERSION = "v17-full-oid-prefix"
+
+
+def _find_context(page: Page, selector: str, timeout_ms: int = 10000):
+    deadline = time.time() + timeout_ms / 1000
+    while True:
+        candidates: list[Page | Frame] = [page] + list(page.frames)
+        for ctx in candidates:
+            try:
+                loc = ctx.locator(selector)
+                if loc.count() > 0:
+                    return ctx, loc
+            except Exception:
+                continue
+        if time.time() >= deadline:
+            return None, None
+        page.wait_for_timeout(300)
+
+
+def _find_exact_text(page: Page, text: str):
+    candidates: list[Page | Frame] = [page] + list(page.frames)
+    for ctx in candidates:
+        try:
+            loc = ctx.get_by_text(text, exact=True)
+            if loc.count() > 0:
+                return ctx, loc
+        except Exception:
+            continue
+    return None, None
+
+
+def debug_print_frames(page: Page) -> None:
+    print(f"\n[診斷] 目前頁面共有 {len(page.frames)} 個 frame：")
+    for i, f in enumerate(page.frames):
+        print(f"  frame[{i}] name={f.name!r} url={f.url}")
+
+
+def debug_print_inputs(page: Page) -> None:
+    candidates: list[Page | Frame] = [page] + list(page.frames)
+    total = 0
+    for ctx_i, ctx in enumerate(candidates):
+        try:
+            inputs = ctx.query_selector_all("input")
+        except Exception:
+            continue
+        for inp in inputs:
+            total += 1
+            try:
+                itype = inp.get_attribute("type") or ""
+                iname = inp.get_attribute("name") or ""
+                iid = inp.get_attribute("id") or ""
+                iplaceholder = inp.get_attribute("placeholder") or ""
+                ivisible = inp.is_visible()
+                print(f"  [ctx={ctx_i}] type={itype!r} name={iname!r} "
+                      f"id={iid!r} placeholder={iplaceholder!r} visible={ivisible}")
+            except Exception as e:
+                print(f"  [ctx={ctx_i}] (讀取屬性失敗: {e})")
+    print(f"\n[診斷] 總共找到 {total} 個 <input> 元素")
+
+
+def debug_print_links(page: Page, keyword: str) -> None:
+    candidates: list[Page | Frame] = [page] + list(page.frames)
+    total = 0
+    for ctx_i, ctx in enumerate(candidates):
+        try:
+            links = ctx.query_selector_all("a")
+        except Exception:
+            continue
+        for a in links:
+            try:
+                text = a.inner_text().strip()
+            except Exception:
+                continue
+            if keyword in text:
+                total += 1
+                try:
+                    href = a.get_attribute("href") or ""
+                    ivisible = a.is_visible()
+                    print(f"  [ctx={ctx_i}] text={text!r} href={href!r} visible={ivisible}")
+                except Exception as e:
+                    print(f"  [ctx={ctx_i}] text={text!r} (讀取屬性失敗: {e})")
+    print(f"\n[診斷] 總共找到 {total} 個包含「{keyword}」的連結")
+
+
+def debug_print_search_button_candidates(page: Page) -> None:
+    candidates: list[Page | Frame] = [page] + list(page.frames)
+    for ctx_i, ctx in enumerate(candidates):
+        try:
+            search_input = ctx.locator("input[name='gloabalSearchField']")
+            if search_input.count() == 0:
+                continue
+        except Exception:
+            continue
+
+        print(f"\n[診斷] 在 ctx={ctx_i} 找到搜尋框，往外找可能的搜尋按鈕：")
+        container = search_input.locator(
+            "xpath=ancestor::td[1] | ancestor::div[1]"
+        )
+        try:
+            container_count = container.count()
+        except Exception:
+            container_count = 0
+
+        if container_count == 0:
+            print("  找不到合理的容器範圍")
+            continue
+
+        for level in range(min(container_count, 3)):
+            c = container.nth(level)
+            try:
+                html_snippet = c.inner_html()
+            except Exception:
+                html_snippet = "(讀取失敗)"
+            print(f"  容器[{level}] HTML片段（前800字）：")
+            print(f"    {html_snippet[:800]!r}")
+
+
+def debug_dump_html(page: Page, filepath: str) -> None:
+    """診斷用：把當下完整頁面原始碼存成檔案，方便直接上傳分析"""
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(page.content())
+    print(f"\n[診斷] 已將完整頁面原始碼存至：{filepath}")
+    print("[診斷] 請把這個檔案上傳給 Claude 分析。")
+
+
 @dataclass
 class PDMTeamEntry:
     role_code: str
-    member_account: str | None   # None 代表 Dummy 佔位或未指派
+    member_account: str | None
     participated: bool
     raw_text: str
 
 
 def login(page: Page, username: str, password: str, timeout_ms: int = 20000) -> None:
-    """
-    登入 PDM(Windchill)。
-
-    TODO(本機驗證)：若公司走 SSO（非帳密表單登入），這裡需改成偵測轉導頁面，
-    並提示管理員手動完成 SSO 步驟後再繼續（比照 Admin Gate 的人工介入原則），
-    而不是硬要用 selector 去填帳密表單。
-    """
     page.goto(LOGIN_URL, timeout=timeout_ms)
     try:
         page.wait_for_selector("input[name='j_username'], #username", timeout=5000)
@@ -64,107 +189,96 @@ def login(page: Page, username: str, password: str, timeout_ms: int = 20000) -> 
         )
 
 
-def search_project(page: Page, project_number: str, timeout_ms: int = 15000) -> str:
-    """
-    在「搜尋(S)」頁籤搜尋專案號碼，點擊完全符合的結果連結，
-    回傳導航後頁面 URL 中解析出的 oid（供組 team 頁面網址使用）。
-    """
-    page.click("text=搜尋(S)")
-    page.wait_for_selector("input[type='search'], input[name='searchKeyword']", timeout=timeout_ms)
-    page.fill("input[type='search'], input[name='searchKeyword']", project_number)
-    page.keyboard.press("Enter")
-    page.wait_for_load_state("networkidle", timeout=timeout_ms)
+def search_project(page: Page, project_number: str, timeout_ms: int = 40000) -> str:
+    ctx, search_input = _find_context(page, "input[name='gloabalSearchField']")
+    if search_input is None:
+        raise PDMReaderError(
+            "找不到搜尋輸入框（已掃描所有frame，name='gloabalSearchField'）。"
+        )
+    search_input.first.click(force=True)
+    search_input.first.press_sequentially(project_number, delay=80)
+    page.wait_for_timeout(300)
 
-    link = page.locator(f"a:text-is('{project_number}')")
-    if link.count() == 0:
-        raise PDMReaderError(f"搜尋結果中找不到專案號碼 {project_number}，請確認號碼是否正確。")
-    link.first.click()
-    page.wait_for_load_state("networkidle", timeout=timeout_ms)
+    search_input.first.press("Enter")
+    page.wait_for_timeout(500)
 
-    current_url = page.url
-    match = re.search(r"oid=([\w%:.]+)", current_url)
-    if not match:
-        raise PDMReaderError(f"無法從網址解析出 oid：{current_url}")
-    return match.group(1)
+    search_ctx, search_trigger = _find_context(page, "img.global-search-trigger", timeout_ms=3000)
+    if search_trigger is not None:
+        try:
+            search_trigger.first.click(force=True, timeout=3000)
+        except Exception:
+            try:
+                search_trigger.first.evaluate("el => el.click()")
+            except Exception:
+                pass
+
+    deadline = time.time() + timeout_ms / 1000
+    oid = None
+    poll_count = 0
+    while time.time() < deadline:
+        html = page.content()
+        oid = _extract_project_oid(html, project_number)
+        if oid:
+            break
+        poll_count += 1
+        if poll_count % 10 == 0:
+            elapsed = int(time.time() - (deadline - timeout_ms / 1000))
+            print(f"[PDM Reader] 仍在等待搜尋結果...（已等待約{elapsed}秒）")
+        page.wait_for_timeout(500)
+
+    if oid is None:
+        raise PDMReaderError(
+            f"搜尋後在頁面原始碼中找不到專案 {project_number} 對應的oid，"
+            f"已等待{timeout_ms/1000:.0f}秒仍未成功，"
+            "可能搜尋未成功觸發，或網路太慢，請確認專案號碼是否正確。"
+        )
+    return oid
 
 
-def navigate_to_team_page(page: Page, oid: str, timeout_ms: int = 15000) -> None:
-    """導航至專案的「小組」頁面"""
-    team_url = f"{PDM_BASE_URL}/app/#ptc1/project/listTeam?ContainerOid={oid}&oid={oid}&u8=1"
+def open_team_page(page: Page, oid: str, timeout_ms: int = 30000) -> None:
+    full_oid = f"OR%3Awt.projmgmt.admin.Project2%3A{oid}"
+    team_url = f"{PDM_BASE_URL}/app/#ptc1/project/listTeam?ContainerOid={full_oid}&oid={full_oid}&u8=1"
     page.goto(team_url, timeout=timeout_ms)
-    page.wait_for_selector("table", timeout=timeout_ms)
-    page.wait_for_timeout(1500)  # Windchill 畫面常有渲染延遲
+    page.wait_for_timeout(500)
+    page.reload(timeout=timeout_ms)
+    page.wait_for_load_state("networkidle", timeout=timeout_ms)
+    page.wait_for_timeout(2000)
 
 
 def parse_team_table(page: Page) -> list[PDMTeamEntry]:
-    """
-    解析角色/成員表格。
-
-    Windchill 小組頁面結構為樹狀表格：
-      - 父列：角色代碼（如 'SW RQM'），有展開/摺疊圖示，本身無成員資訊
-      - 子列（縮排）：實際成員，文字格式為 'EddieYC_Chen(陳裕佳)'
-                       或佔位格式 '角色代碼 (Dummy)'
-      - 「已參與」欄位為 是/否，不代表角色是否有效指派，僅代表該成員
-        是否已於系統中確認參與，解析時不以此欄位過濾資料。
-    """
-    rows = page.query_selector_all("table tr")
-
+    html = page.content()
     entries: list[PDMTeamEntry] = []
-    current_role_code: str | None = None
 
-    for row in rows:
-        cells = row.query_selector_all("td")
-        if not cells:
+    for match in re.finditer(r'"teamMemberName":"([^"]+)",', html):
+        role_code = match.group(1)
+
+        snippet = html[match.end():match.end() + 3000]
+        tooltip_m = re.search(r'"tooltip":"([^"]+)"', snippet)
+        participated_m = re.search(r'"joined_proj":\{"gui":\{"html":"([^"]+)"', snippet)
+
+        if tooltip_m is None:
             continue
+        member_raw = tooltip_m.group(1)
+        participated = (participated_m.group(1) == "是") if participated_m else False
 
-        row_text = row.inner_text().strip()
-        if not row_text:
-            continue
-
-        is_parent_row = row.query_selector(
-            "img[title*='摺疊'], img[title*='展開'], img[alt*='摺疊'], img[alt*='展開']"
-        ) is not None
-
-        if is_parent_row:
-            role_cell = cells[0].inner_text().strip()
-            current_role_code = role_cell.split("\n")[0].strip()
-            continue
-
-        if current_role_code is None:
-            continue
-
-        member_cell_text = cells[0].inner_text().strip() if cells else row_text
-
-        participated_text = ""
-        for c in cells:
-            t = c.inner_text().strip()
-            if t in ("是", "否"):
-                participated_text = t
-                break
-        participated = participated_text == "是"
-
-        if DUMMY_PATTERN.search(member_cell_text):
+        if DUMMY_PATTERN.search(member_raw):
             entries.append(PDMTeamEntry(
-                role_code=current_role_code, member_account=None,
-                participated=participated, raw_text=member_cell_text,
+                role_code=role_code, member_account=None,
+                participated=participated, raw_text=member_raw,
             ))
             continue
 
-        match = NAME_PATTERN.match(member_cell_text)
-        member_account = match.group(1) if match else None
+        name_m = NAME_PATTERN.match(member_raw)
+        member_account = name_m.group(1) if name_m else None
         entries.append(PDMTeamEntry(
-            role_code=current_role_code, member_account=member_account,
-            participated=participated, raw_text=member_cell_text,
+            role_code=role_code, member_account=member_account,
+            participated=participated, raw_text=member_raw,
         ))
 
     return entries
 
 
 def build_role_dict(entries: list[PDMTeamEntry]) -> dict[str, str]:
-    """
-    將解析結果轉為 {角色代碼: 成員帳號} dict，供 fallback_resolver 直接使用。
-    Dummy / 未指派角色不會出現在回傳的 dict 中（視同 resolve_field 判斷查無資料）。
-    """
     result: dict[str, str] = {}
     for e in entries:
         if e.member_account is None:
@@ -179,20 +293,13 @@ def build_role_dict(entries: list[PDMTeamEntry]) -> dict[str, str]:
 
 def fetch_pdm_team(username: str, password: str, project_number: str,
                     headless: bool = True) -> dict[str, str]:
-    """
-    完整流程入口：登入 -> 搜尋專案 -> 進入小組頁 -> 解析 -> 回傳角色/成員 dict
-
-    帳密由呼叫端透過 admin_gate.request_pdm_credentials() 即時取得，
-    此函式不主動要求輸入，也不落地儲存帳密，函式結束後帳密變數
-    由呼叫端負責清除（session.pdm_username = session.pdm_password = None）。
-    """
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=headless)
         page = browser.new_page()
         try:
             login(page, username, password)
             oid = search_project(page, project_number)
-            navigate_to_team_page(page, oid)
+            open_team_page(page, oid)
             entries = parse_team_table(page)
             return build_role_dict(entries)
         finally:
