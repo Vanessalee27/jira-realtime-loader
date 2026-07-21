@@ -1,13 +1,5 @@
 """
 JIRA 通知模組。
-
-處理兩種留言：
-  1. 初次執行結果留言：列出所有欄位狀態，衝突欄位附上 A/B 選項與回覆格式說明
-  2. RD回覆後的最終結果留言：套用RD選擇後，公告最終loader.txt內容
-
-RD 回覆解析：
-  掃描留言區塊，尋找符合 "欄位名: A" 或 "欄位名: B" 格式的文字
-  （不區分大小寫、允許前後空白），逐一比對衝突欄位清單。
 """
 
 from __future__ import annotations
@@ -28,7 +20,6 @@ SOURCE_LABEL = {
     "rd_choice_B_logic2": "RD人工選擇(採JIRA)",
 }
 
-# RD 回覆格式範例： "REVIEWER3: A" 或 "REVIEWER3：B"（全形/半形冒號皆支援）
 REPLY_PATTERN = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)\s*[:：]\s*([AaBb])\b")
 
 
@@ -40,9 +31,6 @@ def _mention_prefix(assignee_full_name: str, reporter_full_name: str) -> str:
 
 def build_initial_comment(resolved: dict[str, FieldResult],
                            assignee_full_name: str, reporter_full_name: str) -> str:
-    """
-    第一階段留言：列出所有欄位結果，衝突欄位附上選項與回覆說明。
-    """
     lines = [
         _mention_prefix(assignee_full_name, reporter_full_name).rstrip(),
         "",
@@ -60,7 +48,7 @@ def build_initial_comment(resolved: dict[str, FieldResult],
         elif r.status == FieldStatus.CONFLICT:
             lines.append(f"- {name}（{r.role_code}）: ⚠️ 待選擇（PDM 與 JIRA 資料不一致）")
             conflict_fields.append(r)
-        else:  # MISSING
+        else:
             lines.append(f"- {name}（{r.role_code}）: ⚠️ 待確認（PDM 與 JIRA 皆查無資料）")
 
     if conflict_fields:
@@ -91,9 +79,6 @@ def build_initial_comment(resolved: dict[str, FieldResult],
 
 def build_final_comment(resolved: dict[str, FieldResult],
                          assignee_full_name: str, reporter_full_name: str) -> str:
-    """
-    第二階段留言：套用RD選擇後，公告最終結果。
-    """
     lines = [
         _mention_prefix(assignee_full_name, reporter_full_name).rstrip(),
         "",
@@ -112,18 +97,6 @@ def build_final_comment(resolved: dict[str, FieldResult],
 
 
 def parse_rd_reply(comment_text: str, conflict_field_names: list[str]) -> dict[str, str]:
-    """
-    從RD的回覆留言文字中解析出各衝突欄位選擇的 A 或 B。
-
-    Args:
-        comment_text: RD回覆的原始留言文字
-        conflict_field_names: 需要被解析的衝突欄位名稱清單
-
-    Returns:
-        {欄位名稱: 'A' 或 'B'}，只包含成功解析到的欄位；
-        若RD只回覆了部分欄位，其餘欄位不會出現在回傳結果中
-        （代表尚待進一步回覆，呼叫端需自行判斷是否要再次提醒）。
-    """
     matches = REPLY_PATTERN.findall(comment_text)
     result = {}
     for field_name, choice in matches:
@@ -133,18 +106,63 @@ def parse_rd_reply(comment_text: str, conflict_field_names: list[str]) -> dict[s
 
 
 def post_new_comment(page, ticket_id: str, content: str) -> None:
-    """每次都新增一則留言，不做編輯/去重（依需求確認的策略）"""
+    """
+    每次都新增一則留言，不做編輯/去重。
+    """
     page.goto(f"https://jira-dc.moxa.com/browse/{ticket_id}")
     page.click("a#footer-comment-button")
-    page.fill(".comment-textarea", content)
-    page.click("button:has-text('新增')")
+
+    page.wait_for_selector("iframe[id^='mce_'][id$='_ifr']", timeout=15000)
+
+    # 改用TinyMCE自己的JavaScript API，確保JIRA能正確偵測到輸入，
+    # 讓「新增」按鈕的disabled狀態解除。
+    page.evaluate(
+        """(content) => {
+            if (window.tinymce && window.tinymce.activeEditor) {
+                window.tinymce.activeEditor.setContent(content);
+                window.tinymce.activeEditor.fire('change');
+                window.tinymce.activeEditor.fire('keyup');
+            }
+        }""",
+        content,
+    )
+    page.wait_for_timeout(500)
+
+    editor_frame = page.frame_locator("iframe[id^='mce_'][id$='_ifr']")
+    editor_body = editor_frame.locator("body")
+    current_text = editor_body.inner_text().strip()
+    if content not in current_text:
+        editor_body.click()
+        editor_body.fill(content)
+        page.wait_for_timeout(500)
+
+    submit_selectors = [
+        "#issue-comment-add-submit",
+        "button:has-text('新增')",
+        "button:has-text('儲存')",
+        "button:has-text('Save')",
+        "input[type='submit']",
+        "button:has-text('Add')",
+    ]
+
+    for sel in submit_selectors:
+        btn = page.locator(sel)
+        if btn.count() == 0:
+            continue
+        try:
+            btn.first.wait_for(state="visible", timeout=2000)
+        except Exception:
+            continue
+        for _ in range(10):
+            if btn.first.is_visible() and btn.first.is_enabled():
+                btn.first.click()
+                return
+            page.wait_for_timeout(500)
+
+    raise Exception("找不到可點擊(enabled)的留言送出按鈕，已嘗試多種常見文字皆無效")
 
 
 def fetch_latest_comments(page, ticket_id: str) -> list[str]:
-    """
-    抓取票的所有留言文字（供輪詢RD是否已回覆時使用）。
-    實際 selector 需依 JIRA-DC 頁面結構調整。
-    """
     page.goto(f"https://jira-dc.moxa.com/browse/{ticket_id}")
     comment_elements = page.query_selector_all(".comment-body")
     return [el.inner_text() for el in comment_elements]
