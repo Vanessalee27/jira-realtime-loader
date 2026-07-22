@@ -20,57 +20,104 @@ SOURCE_LABEL = {
     "rd_choice_B_logic2": "RD人工選擇(採JIRA)",
 }
 
-REPLY_PATTERN = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)\s*[:：]\s*([AaBb])\b")
+# RD 回覆格式：支援三種寫法
+#   1. "REVIEWER: A" 或 "REVIEWER（SW RQM）: A"  -> 選邏輯1(PDM)
+#   2. "REVIEWER: B" 或 "REVIEWER（SW RQM）: B"  -> 選邏輯2(JIRA)
+#   3. "REVIEWER（SW RQM）: John_Doe"            -> RD自行輸入姓名
+REPLY_SEGMENT_PATTERN = re.compile(
+    r"([A-Za-z_][A-Za-z0-9_]*)\s*(?:（[^）]*）)?\s*[:：]\s*([^,\n]+)"
+)
 
 
 def _mention_prefix(assignee_full_name: str, reporter_full_name: str) -> str:
-    assignee_account = normalize_name(assignee_full_name)
-    reporter_account = normalize_name(reporter_full_name)
+    def _strip_chinese_suffix(full_name: str) -> str:
+        idx = full_name.find("(")
+        if idx == -1:
+            idx = full_name.find("（")
+        return full_name[:idx].strip() if idx != -1 else full_name.strip()
+
+    assignee_account = normalize_name(_strip_chinese_suffix(assignee_full_name))
+    reporter_account = normalize_name(_strip_chinese_suffix(reporter_full_name))
     return f"[~{assignee_account}] [~{reporter_account}]\n\n"
 
 
 def build_initial_comment(resolved: dict[str, FieldResult],
                            assignee_full_name: str, reporter_full_name: str) -> str:
-    lines = [
-        _mention_prefix(assignee_full_name, reporter_full_name).rstrip(),
-        "",
-        AI_COMMENT_MARKER + "，請確認執行結果是否符合預期。",
-        "",
-        "【本次 Loader 執行結果】",
-    ]
+    """
+    通知對象與內容規則：
+      - 全部欄位比對成功（無衝突）-> @Assignee，直接附上乾淨的loader.txt
+        內容（不含來源標籤等備註，備註只適合開發除錯時看，不適合
+        當作正式交付內容）
+      - 有任何欄位衝突 -> @Reporter，附上三選項讓Reporter擇一回覆
+    """
+    conflict_fields = [r for r in resolved.values() if r.status == FieldStatus.CONFLICT]
+    missing_fields = [r for r in resolved.values() if r.status == FieldStatus.MISSING]
+    has_conflict = len(conflict_fields) > 0
 
-    conflict_fields = []
+    def _strip_chinese_suffix(full_name: str) -> str:
+        idx = full_name.find("(")
+        if idx == -1:
+            idx = full_name.find("（")
+        return full_name[:idx].strip() if idx != -1 else full_name.strip()
 
+    if has_conflict:
+        mention_account = normalize_name(_strip_chinese_suffix(reporter_full_name))
+    else:
+        mention_account = normalize_name(_strip_chinese_suffix(assignee_full_name))
+
+    lines = [f"[~{mention_account}]", ""]
+
+    if not has_conflict:
+        lines.append(AI_COMMENT_MARKER + "，流簽人員已確認完成，loader.txt 內容如下：")
+        lines.append("")
+        for name, r in resolved.items():
+            value = r.value if r.value else "[待確認]"
+            lines.append(f"{name}\t{value}")
+        if missing_fields:
+            lines.append("")
+            lines.append("【提醒】以下角色於 PDM / JIRA 均查無對應人員，"
+                          "請協助更新 PDM 專案成員：")
+            for r in missing_fields:
+                lines.append(f"- {r.field_name}（{r.role_code}）")
+        lines.append("")
+        lines.append(f"執行時間：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        return "\n".join(lines)
+
+    lines.append(AI_COMMENT_MARKER + "，發現 PDM 與 JIRA 資料不一致，請確認：")
+    lines.append("")
+    lines.append("【本次 Loader 執行結果】")
     for name, r in resolved.items():
         if r.status in (FieldStatus.AGREED, FieldStatus.SINGLE_SOURCE):
             label = SOURCE_LABEL.get(r.resolved_by, r.resolved_by)
             lines.append(f"- {name}（{r.role_code}）: {r.value} [{label}]")
         elif r.status == FieldStatus.CONFLICT:
             lines.append(f"- {name}（{r.role_code}）: ⚠️ 待選擇（PDM 與 JIRA 資料不一致）")
-            conflict_fields.append(r)
         else:
             lines.append(f"- {name}（{r.role_code}）: ⚠️ 待確認（PDM 與 JIRA 皆查無資料）")
 
-    if conflict_fields:
-        lines.append("")
-        lines.append("【需要 RD 選擇】以下欄位 PDM 與 JIRA 資料不一致，請回覆對應選項：")
-        for r in conflict_fields:
-            lines.append(f"- {r.field_name}: A）{r.logic1_value}（PDM）"
-                          f"  或  B）{r.logic2_value}（JIRA）")
-        lines.append("")
-        lines.append("請直接回覆，例如：")
-        lines.append("  " + "\n  ".join(f"{r.field_name}: A" for r in conflict_fields))
+    lines.append("")
+    lines.append("【需要 Reporter 確認】以下欄位 PDM 與 JIRA 資料不一致，"
+                  "請從三個選項中擇一回覆：")
+    for r in conflict_fields:
+        lines.append(f"- {r.field_name}（{r.role_code}）: "
+                      f"A）{r.logic1_value}（PDM即時資料）  "
+                      f"或  B）{r.logic2_value}（JIRA內建簽核表）")
+    lines.append("")
+    lines.append("回覆方式：")
+    lines.append("  選項1或2，請回覆，例如：")
+    lines.append("  " + "\n  ".join(f"{r.field_name}: A" for r in conflict_fields))
+    lines.append("")
+    lines.append("  選項3（都不對，我自己指定人選），請照這個格式回覆"
+                  "（outlook 帳號格式為 名_姓）：")
+    lines.append("  " + "\n  ".join(
+        f"{r.field_name}（{r.role_code}）: outlook 名_姓" for r in conflict_fields
+    ))
 
-    missing_fields = [r for r in resolved.values() if r.status == FieldStatus.MISSING]
     if missing_fields:
         lines.append("")
         lines.append("【需要人工確認】以下角色於 PDM / JIRA 均查無對應人員，請協助更新 PDM 專案成員：")
         for r in missing_fields:
             lines.append(f"- {r.field_name}（{r.role_code}）")
-
-    if not conflict_fields and not missing_fields:
-        lines.append("")
-        lines.append("✅ 所有角色皆已成功比對，無需人工確認。")
 
     lines.append("")
     lines.append(f"執行時間：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -79,6 +126,9 @@ def build_initial_comment(resolved: dict[str, FieldResult],
 
 def build_final_comment(resolved: dict[str, FieldResult],
                          assignee_full_name: str, reporter_full_name: str) -> str:
+    """
+    第二階段留言：套用RD選擇後，公告最終結果。
+    """
     lines = [
         _mention_prefix(assignee_full_name, reporter_full_name).rstrip(),
         "",
@@ -97,25 +147,39 @@ def build_final_comment(resolved: dict[str, FieldResult],
 
 
 def parse_rd_reply(comment_text: str, conflict_field_names: list[str]) -> dict[str, str]:
-    matches = REPLY_PATTERN.findall(comment_text)
+    """
+    從RD的回覆留言文字中解析出各衝突欄位的回覆內容。
+
+    支援三種寫法（見 REPLY_SEGMENT_PATTERN）：
+      - "REVIEWER: A" 或 "REVIEWER（SW RQM）: A" -> 選邏輯1(PDM)
+      - "REVIEWER: B" 或 "REVIEWER（SW RQM）: B" -> 選邏輯2(JIRA)
+      - "REVIEWER（SW RQM）: John_Doe"          -> RD自行輸入姓名（選項3）
+    """
     result = {}
-    for field_name, choice in matches:
-        if field_name in conflict_field_names:
-            result[field_name] = choice.upper()
+    for m in REPLY_SEGMENT_PATTERN.finditer(comment_text):
+        field_name, raw_value = m.group(1), m.group(2).strip()
+        if field_name not in conflict_field_names:
+            continue
+        raw_value = re.sub(r"\s*\[[^\]]*\]\s*$", "", raw_value).strip()
+        if not raw_value:
+            continue
+        result[field_name] = raw_value
     return result
 
 
 def post_new_comment(page, ticket_id: str, content: str) -> None:
     """
     每次都新增一則留言，不做編輯/去重。
+
+    留言輸入框是TinyMCE富文本編輯器（渲染成獨立iframe），需要先切換到
+    那個iframe，改用TinyMCE自己的JavaScript API設定內容，確保JIRA能
+    正確偵測到輸入，讓「新增」按鈕的disabled狀態解除。
     """
     page.goto(f"https://jira-dc.moxa.com/browse/{ticket_id}")
     page.click("a#footer-comment-button")
 
     page.wait_for_selector("iframe[id^='mce_'][id$='_ifr']", timeout=15000)
 
-    # 改用TinyMCE自己的JavaScript API，確保JIRA能正確偵測到輸入，
-    # 讓「新增」按鈕的disabled狀態解除。
     page.evaluate(
         """(content) => {
             if (window.tinymce && window.tinymce.activeEditor) {

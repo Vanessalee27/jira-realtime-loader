@@ -1,11 +1,12 @@
 """
 欄位解析核心邏輯。
 
-三種可能結果：
+四種可能結果：
   1. single_source   ：只有邏輯1(PDM)或邏輯2(JIRA)其中一邊有值 -> 自動採用
   2. agreed          ：兩邊都有值且相同 -> 自動採用
-  3. conflict        ：兩邊都有值但不同 -> 交由 RD 人工選擇（原「邏輯3」已改為此用途）
-  4. missing         ：兩邊皆查無 -> 標記待確認，走原本 Step4 人工確認流程
+  3. conflict        ：兩邊都有值但不同 -> 交由 Reporter 從三個選項擇一
+                        （A=PDM / B=JIRA / 自行KEY IN）
+  4. missing         ：兩邊皆查無 -> 標記待確認，需人工更新PDM專案成員
 """
 
 from __future__ import annotations
@@ -29,7 +30,7 @@ class FieldResult:
     value: str | None = None          # single_source / agreed 時有值
     logic1_value: str | None = None   # PDM 查詢結果（可能為 None）
     logic2_value: str | None = None   # JIRA 內建表結果（可能為 None）
-    resolved_by: str | None = None    # 記錄最終是誰選的：'logic1' / 'logic2' / 'rd_choice_A' / 'rd_choice_B'
+    resolved_by: str | None = None    # 記錄最終是誰選的
 
 
 ROLE_MAPPING = {
@@ -66,7 +67,6 @@ def resolve_field(field_name: str, role_code: str,
                 resolved_by="logic1_and_logic2_agree",
             )
         else:
-            # 衝突，暫不給 value，等 RD 選擇
             return FieldResult(
                 field_name=field_name, role_code=role_code,
                 status=FieldStatus.CONFLICT, value=None,
@@ -107,24 +107,28 @@ def resolve_loader(pdm_team: dict, jira_table: dict | None) -> dict[str, FieldRe
 
 def apply_rd_choice(result: FieldResult, choice: str) -> FieldResult:
     """
-    RD 回覆選擇後，套用選擇結果更新 FieldResult。
+    Reporter 回覆選擇後，套用選擇結果更新 FieldResult。
 
     Args:
         result: 原本 status=CONFLICT 的 FieldResult
-        choice: 'A' 代表選邏輯1的值，'B' 代表選邏輯2的值
+        choice: 'A' 代表選邏輯1(PDM)的值、'B' 代表選邏輯2(JIRA)的值，
+                其他任何文字則視為Reporter自行輸入的手動值（選項3）。
     """
     if result.status != FieldStatus.CONFLICT:
         raise ValueError(f"欄位 {result.field_name} 並非衝突狀態，無法套用RD選擇")
 
-    choice = choice.strip().upper()
-    if choice == "A":
+    choice_clean = choice.strip()
+    choice_upper = choice_clean.upper()
+
+    if choice_upper == "A":
         result.value = result.logic1_value
         result.resolved_by = "rd_choice_A_logic1"
-    elif choice == "B":
+    elif choice_upper == "B":
         result.value = result.logic2_value
         result.resolved_by = "rd_choice_B_logic2"
     else:
-        raise ValueError(f"無效的選擇：{choice}，僅接受 A 或 B")
+        result.value = choice_clean
+        result.resolved_by = "rd_choice_C_manual"
 
     result.status = FieldStatus.AGREED  # 視為已解決
     return result
